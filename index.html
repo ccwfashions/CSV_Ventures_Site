@@ -1,512 +1,1249 @@
-DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OperatorOS — Your Personal Command Center</title>
-  <meta name="description" content="OperatorOS is an AI Chief of Staff for high-level women who carry a lot—and still lead. A private command center for founders, executives, and operators." />
+  <title>CSV Ventures â€” Build. Test. Scale.</title>
+  <meta name="description" content="CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment." />
+
+  <!-- Canonical & Open Graph -->
+  <link rel="canonical" href="https://csvventures.com/" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://csvventures.com/" />
+  <meta property="og:title"       content="CSV Ventures â€” Build. Test. Scale." />
+  <meta property="og:description" content="CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment." />
+  <meta property="og:site_name"   content="CSV Ventures" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="CSV Ventures â€” Build. Test. Scale." />
+  <meta name="twitter:description" content="CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment." />
+  <meta name="twitter:site"        content="@csvventures" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fff'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='10' fill='%230B0B0B'%3ECSV%3C/text%3E%3C/svg%3E" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,200;0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,300;1,14..32,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            background: '#0B0B0B',
+            surface:    '#111111',
+            surface2:   '#161616',
+            border:     '#1F1F1F',
+            muted:      '#6B6B6B',
+            accent:     '#D4D4D4',
+            highlight:  '#E8E8E8',
+          },
+          animation: {
+            'fade-up':   'fadeUp 0.7s ease both',
+            'fade-in':   'fadeIn 0.6s ease both',
+            'line-grow': 'lineGrow 1s ease both',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%':   { opacity: '0', transform: 'translateY(28px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%':   { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            lineGrow: {
+              '0%':   { width: '0%' },
+              '100%': { width: '100%' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* â”€â”€ Base â”€â”€ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #0B0B0B;
+      color: #E8E8E8;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* â”€â”€ Noise texture overlay â”€â”€ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* â”€â”€ Glow blobs â”€â”€ */
+    .glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* â”€â”€ Gradient text â”€â”€ */
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .text-gradient-accent {
+      background: linear-gradient(135deg, #e0e0e0 0%, #888888 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* â”€â”€ Buttons â”€â”€ */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: #ffffff;
+      color: #0B0B0B;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #e8e8e8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,255,255,0.12);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: transparent;
+      color: #E8E8E8;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 6px;
+      border: 1px solid #2a2a2a;
+      transition: all 0.25s ease;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+    }
+    .btn-secondary:hover {
+      border-color: #555;
+      background: #161616;
+      transform: translateY(-2px);
+    }
+
+    /* â”€â”€ Cards â”€â”€ */
+    .card {
+      background: #111111;
+      border: 1px solid #1F1F1F;
+      border-radius: 12px;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      border-color: #3a3a3a;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    /* â”€â”€ Step connector â”€â”€ */
+    .step-connector {
+      position: relative;
+    }
+    .step-connector::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(50% + 28px);
+      width: calc(100% - 56px);
+      height: 1px;
+      background: linear-gradient(90deg, #2a2a2a, #3a3a3a, #2a2a2a);
+    }
+
+    /* â”€â”€ Divider â”€â”€ */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #2a2a2a 30%, #2a2a2a 70%, transparent);
+      margin: 0 auto;
+    }
+
+    /* â”€â”€ Nav â”€â”€ */
+    .nav-blur {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(11,11,11,0.85);
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    /* â”€â”€ Reveal animations (triggered by IntersectionObserver) â”€â”€ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* â”€â”€ Number badge â”€â”€ */
+    .step-badge {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 1px solid #2a2a2a;
+      background: #111111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    /* â”€â”€ Mobile menu â”€â”€ */
+    #mobile-menu {
+      transition: all 0.3s ease;
+    }
+
+    /* â”€â”€ Founder avatar ring â”€â”€ */
+    .avatar-ring {
+      border: 1px solid #2a2a2a;
+      transition: border-color 0.3s;
+    }
+    .founder-card:hover .avatar-ring {
+      border-color: #555;
+    }
+
+    /* â”€â”€ Horizontal scroll for steps on mobile â”€â”€ */
+    .steps-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .steps-scroll::-webkit-scrollbar { display: none; }
+
+    /* â”€â”€ Subtle horizontal rule â”€â”€ */
+    hr.subtle { border-color: #1F1F1F; }
+
+    /* â”€â”€ Badge pill â”€â”€ */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid #2a2a2a;
+      background: #0f0f0f;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .pill .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #555;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ============================================================
-       MINIMAL NAVBAR
-  ============================================================ -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-mark">O</span>
-        <span class="logo-text">OperatorOS</span>
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     NAVIGATION
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 rounded-md bg-white flex items-center justify-center">
+        <span class="text-black font-black text-sm tracking-tight">CSV</span>
+      </div>
+      <span class="font-semibold text-white text-[15px] tracking-wide">CSV Ventures</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#what-we-do"    class="text-sm text-[#888] hover:text-white transition-colors duration-200">What We Do</a>
+      <a href="#how-it-works"  class="text-sm text-[#888] hover:text-white transition-colors duration-200">How It Works</a>
+      <a href="#founders"      class="text-sm text-[#888] hover:text-white transition-colors duration-200">Founders</a>
+      <a href="#opportunities" class="text-sm text-[#888] hover:text-white transition-colors duration-200">Opportunities</a>
+    </div>
+
+    <!-- CTA + Hamburger -->
+    <div class="flex items-center gap-4">
+      <a href="#cta" class="hidden md:inline-flex btn-primary py-[10px] px-5 text-sm">
+        Get Early Access
       </a>
-      <ul class="nav-links">
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#for-you" class="nav-link">For You</a></li>
-        <li><a href="#access" class="nav-cta-link">Request Access</a></li>
-      </ul>
-      <button class="nav-mobile-toggle" aria-label="Toggle menu" id="mobileToggle">
-        <span></span>
-        <span></span>
+      <button id="menu-toggle" class="md:hidden text-[#888] hover:text-white transition-colors p-1" aria-label="Toggle menu">
+        <i class="fas fa-bars text-lg" id="menu-icon"></i>
       </button>
     </div>
-    <div class="nav-mobile-menu" id="mobileMenu">
-      <a href="#experience" class="nav-mobile-link">Experience</a>
-      <a href="#for-you" class="nav-mobile-link">For You</a>
-      <a href="#access" class="nav-mobile-cta">Request Access</a>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden nav-blur border-t border-[#1a1a1a]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4">
+      <a href="#what-we-do"    class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">What We Do</a>
+      <a href="#how-it-works"  class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">How It Works</a>
+      <a href="#founders"      class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">Founders</a>
+      <a href="#opportunities" class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">Opportunities</a>
+      <a href="#cta"           class="btn-primary text-sm mt-2 justify-center" onclick="closeMobileMenu()">Get Early Access</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <main>
 
-    <!-- ============================================================
-         SECTION 1 — HERO (Cinematic image background + zoom)
-    ============================================================ -->
-    <section class="hero" id="hero">
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SECTION 1 â€” HERO
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-20">
 
-      <!-- Cinematic image bg with Ken Burns zoom -->
-      <div class="hero-image-bg" aria-hidden="true">
-        <div class="hero-image-layer" style="background-image: url('images/hero-bg.jpg');"></div>
+  <!-- Background glow blobs -->
+  <div class="glow-blob w-[600px] h-[600px] bg-white opacity-[0.025] top-[-100px] left-[-200px]"></div>
+  <div class="glow-blob w-[500px] h-[500px] bg-white opacity-[0.02] bottom-[-100px] right-[-150px]"></div>
+
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 z-0" style="background-image: linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px); background-size: 60px 60px; opacity: 0.2;"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+
+    <!-- Badge -->
+    <div class="pill mb-8 mx-auto reveal" style="width:fit-content">
+      <span class="dot" style="background:#888;"></span>
+      Private Venture Lab
+    </div>
+
+    <!-- Headline -->
+    <h1 class="reveal reveal-delay-1 text-[clamp(2.4rem,6vw,4.5rem)] font-black leading-[1.08] tracking-[-0.03em] mb-6">
+      <span class="text-gradient">We Build Platforms.</span><br />
+      <span class="text-gradient">We Test Them Fast.</span><br />
+      <span class="text-gradient">We Scale What Works.</span>
+    </h1>
+
+    <!-- Subtext -->
+    <p class="reveal reveal-delay-2 text-[#888] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+      CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment.
+    </p>
+
+    <!-- Buttons -->
+    <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#opportunities" class="btn-primary">
+        <i class="fas fa-handshake"></i>
+        Partner With Us
+      </a>
+      <a href="#cta" class="btn-secondary">
+        Get Early Access
+        <i class="fas fa-arrow-right text-sm"></i>
+      </a>
+    </div>
+
+    <!-- Stats row -->
+    <div class="reveal reveal-delay-4 mt-20 grid grid-cols-3 gap-6 max-w-xl mx-auto border border-[#1f1f1f] rounded-xl p-6 bg-[#0f0f0f]">
+      <div class="text-center">
+        <div class="text-2xl font-bold text-white">Fast</div>
+        <div class="text-xs text-[#555] mt-1 uppercase tracking-widest">MVP Cycles</div>
       </div>
-
-      <!-- Overlay system: gradient depth layers -->
-      <div class="hero-overlay hero-overlay-base" aria-hidden="true"></div>
-      <div class="hero-overlay hero-overlay-gradient" aria-hidden="true"></div>
-      <div class="hero-overlay hero-overlay-vignette" aria-hidden="true"></div>
-
-      <!-- Subtle grid texture on top -->
-      <div class="hero-grid" aria-hidden="true"></div>
-
-      <!-- Hero Content -->
-      <div class="hero-content">
-        <div class="hero-badge reveal-fade">
-          <span class="badge-dot"></span>
-          <span>Early Access — Now Open</span>
-        </div>
-
-        <h1 class="hero-headline reveal-up">
-          The AI Chief of Staff<br />
-          <em>for women who carry a lot—</em><br />
-          and still lead at a high level.
-        </h1>
-
-        <p class="hero-sub reveal-up reveal-delay-1">
-          A private operating system for founders, executives, and operators<br class="hero-br"/> who need more than another productivity tool.
-        </p>
-
-        <div class="hero-actions reveal-up reveal-delay-2">
-          <a href="#access" class="btn-primary">Request Access</a>
-          <a href="#experience" class="btn-ghost">
-            <span>See the Experience</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
+      <div class="border-x border-[#1f1f1f] text-center">
+        <div class="text-2xl font-bold text-white">Real</div>
+        <div class="text-xs text-[#555] mt-1 uppercase tracking-widest">User Validation</div>
       </div>
-
-      <!-- PRODUCT UI REVEAL — Cinematic partial expose -->
-      <div class="hero-product-reveal reveal-up reveal-delay-3" id="experience">
-        <div class="product-frame">
-          <div class="product-frame-glow"></div>
-          <div class="product-screen">
-            <!-- Command Header -->
-            <div class="ui-directive-bar">
-              <div class="ui-directive-label">Today's Command</div>
-              <div class="ui-directive-text">3 decisions need you. Everything else is handled.</div>
-              <div class="ui-status-row">
-                <span class="status-pill status-green">Ops: Structured</span>
-                <span class="status-pill status-blue">Comms: Moving</span>
-                <span class="status-pill status-amber">Performance: Protected</span>
-              </div>
-            </div>
-            <!-- Action Cards Row -->
-            <div class="ui-cards-row">
-              <div class="ui-card">
-                <div class="ui-card-icon">◈</div>
-                <div class="ui-card-content">
-                  <div class="ui-card-title">Priority Surface</div>
-                  <div class="ui-card-desc">Board deck · Due 2pm</div>
-                </div>
-                <div class="ui-card-badge">Now</div>
-              </div>
-              <div class="ui-card ui-card-dim">
-                <div class="ui-card-icon">◇</div>
-                <div class="ui-card-content">
-                  <div class="ui-card-title">Decision Moved</div>
-                  <div class="ui-card-desc">Vendor approval · Done</div>
-                </div>
-                <div class="ui-card-badge ui-badge-done">✓</div>
-              </div>
-              <div class="ui-card ui-card-dim">
-                <div class="ui-card-icon">◈</div>
-                <div class="ui-card-content">
-                  <div class="ui-card-title">Comms Cleared</div>
-                  <div class="ui-card-desc">4 threads handled</div>
-                </div>
-                <div class="ui-card-badge ui-badge-done">✓</div>
-              </div>
-            </div>
-            <!-- Command Bar -->
-            <div class="ui-command-bar">
-              <div class="ui-command-prompt">What needs to move today?</div>
-              <div class="ui-command-cursor"></div>
-            </div>
-          </div>
-          <!-- Edge blur masks -->
-          <div class="product-frame-blur-bottom"></div>
-          <div class="product-frame-blur-left"></div>
-          <div class="product-frame-blur-right"></div>
-        </div>
-      </div>
-
-      <div class="hero-scroll-cue" aria-hidden="true">
-        <div class="scroll-line"></div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SECTION 2 — TENSION / PROBLEM (Text section)
-    ============================================================ -->
-    <section class="tension section-padded">
-      <div class="container-narrow">
-        <div class="section-eyebrow reveal-fade">The Reality</div>
-        <h2 class="tension-headline reveal-up">
-          You're not just managing work.<br />
-          You're managing <em>everything.</em>
-        </h2>
-        <div class="tension-body reveal-up reveal-delay-1">
-          <p>
-            Decisions. Communication. Priorities. Expectations.<br />
-            The things most systems never see—and you never stop carrying.
-          </p>
-          <p class="tension-contrast">
-            Most tools help you organize tasks.
-          </p>
-          <p class="tension-answer">
-            OperatorOS helps you stay in control of what actually matters.
-          </p>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         CINEMATIC BREAK 1 — REALITY IMAGE
-         "Carrying everything. All the time."
-    ============================================================ -->
-    <section class="cinematic-break cinematic-break--reality" aria-label="Visual break: the weight of complexity">
-      <div class="cinematic-break__bg" style="background-image: url('images/reality-bg.jpg');"></div>
-      <div class="cinematic-break__overlay cinematic-break__overlay--dark"></div>
-      <div class="cinematic-break__content reveal-up">
-        <p class="cinematic-break__line">You carry more than anyone sees.</p>
-        <p class="cinematic-break__line cinematic-break__line--dim">It's time something carried it with you.</p>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SECTION 3 — WHAT IT DOES (Text section)
-    ============================================================ -->
-    <section class="value-lines section-padded" id="what-it-does">
-      <div class="container-narrow">
-        <div class="section-eyebrow reveal-fade">What It Does</div>
-        <h2 class="section-headline reveal-up">It runs the day with you.</h2>
-
-        <div class="value-grid">
-          <div class="value-item reveal-up reveal-delay-1">
-            <div class="value-number">01</div>
-            <div class="value-text">It tells you what matters.</div>
-          </div>
-          <div class="value-item reveal-up reveal-delay-2">
-            <div class="value-number">02</div>
-            <div class="value-text">It prepares what needs to move.</div>
-          </div>
-          <div class="value-item reveal-up reveal-delay-3">
-            <div class="value-number">03</div>
-            <div class="value-text">It protects your time.</div>
-          </div>
-          <div class="value-item reveal-up reveal-delay-4">
-            <div class="value-number">04</div>
-            <div class="value-text">It keeps things from slipping.</div>
-          </div>
-        </div>
-
-        <p class="value-footnote reveal-fade reveal-delay-4">
-          Without turning your day into another dashboard.
-        </p>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SECTION 4 — PRODUCT GLIMPSE (UI section)
-         Deep command center reveal — refined with glow + blur masks
-    ============================================================ -->
-    <section class="product-glimpse section-padded" id="product">
-      <div class="container-wide">
-        <div class="section-eyebrow reveal-fade">The System</div>
-        <h2 class="section-headline reveal-up">Not a dashboard.<br />A command center.</h2>
-
-        <div class="glimpse-layout">
-          <!-- Left: Command bar close-up -->
-          <div class="glimpse-panel glimpse-left reveal-left">
-            <div class="glimpse-ui-piece glimpse-ui-piece--glow">
-              <div class="glimpse-label">Command</div>
-              <div class="glimpse-command-block">
-                <div class="gcb-prompt">Move the Meridian negotiation forward.</div>
-                <div class="gcb-response">
-                  <div class="gcb-response-line">Drafting follow-up email…</div>
-                  <div class="gcb-response-line gcb-dim">Flagging decision point for tomorrow.</div>
-                  <div class="gcb-response-line gcb-dim">Cleared from active stack.</div>
-                </div>
-              </div>
-              <!-- Edge blur mask -->
-              <div class="glimpse-piece-blur-bottom"></div>
-            </div>
-          </div>
-
-          <!-- Right: Status panel -->
-          <div class="glimpse-panel glimpse-right reveal-right">
-            <div class="glimpse-ui-piece">
-              <div class="glimpse-label">What I Handled</div>
-              <div class="glimpse-handled-list">
-                <div class="handled-item">
-                  <div class="handled-dot handled-done"></div>
-                  <div class="handled-text">Board materials compiled</div>
-                  <div class="handled-time">9:04am</div>
-                </div>
-                <div class="handled-item">
-                  <div class="handled-dot handled-done"></div>
-                  <div class="handled-text">3 threads responded</div>
-                  <div class="handled-time">10:17am</div>
-                </div>
-                <div class="handled-item">
-                  <div class="handled-dot handled-done"></div>
-                  <div class="handled-text">Meeting brief sent</div>
-                  <div class="handled-time">11:30am</div>
-                </div>
-                <div class="handled-item handled-pending">
-                  <div class="handled-dot handled-active"></div>
-                  <div class="handled-text">Vendor decision → your call</div>
-                  <div class="handled-time">Now</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="glimpse-ui-piece glimpse-status-block">
-              <div class="gstatus-row">
-                <div class="gstatus-label">Ops</div>
-                <div class="gstatus-bar"><div class="gstatus-fill gstatus-high"></div></div>
-                <div class="gstatus-value">Structured</div>
-              </div>
-              <div class="gstatus-row">
-                <div class="gstatus-label">Comms</div>
-                <div class="gstatus-bar"><div class="gstatus-fill gstatus-mid"></div></div>
-                <div class="gstatus-value">Moving</div>
-              </div>
-              <div class="gstatus-row">
-                <div class="gstatus-label">Perf.</div>
-                <div class="gstatus-bar"><div class="gstatus-fill gstatus-high"></div></div>
-                <div class="gstatus-value">Protected</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         CINEMATIC BREAK 2 — CONTROL / CLARITY IMAGE
-         "From chaos to command."
-    ============================================================ -->
-    <section class="cinematic-break cinematic-break--control" aria-label="Visual break: calm and clarity">
-      <div class="cinematic-break__bg" style="background-image: url('images/control-bg.jpg');"></div>
-      <div class="cinematic-break__overlay cinematic-break__overlay--mid"></div>
-      <div class="cinematic-break__content cinematic-break__content--right reveal-up">
-        <p class="cinematic-break__line">Clarity is not a luxury.</p>
-        <p class="cinematic-break__line cinematic-break__line--dim">It's how you lead.</p>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SECTION 5 — DIFFERENTIATION (Text section)
-    ============================================================ -->
-    <section class="differentiation section-padded">
-      <div class="container-narrow">
-        <div class="section-eyebrow reveal-fade">The Difference</div>
-        <h2 class="section-headline reveal-up">
-          Most tools help you keep up.<br />
-          OperatorOS helps you stay ahead.
-        </h2>
-
-        <div class="comparison-block reveal-up reveal-delay-1">
-          <div class="comparison-col">
-            <div class="comparison-header comparison-other">Other tools</div>
-            <ul class="comparison-list comparison-list-other">
-              <li>Organize tasks you already know about</li>
-              <li>Show data—you interpret it</li>
-              <li>Wait for you to give input</li>
-              <li>Add more things to manage</li>
-            </ul>
-          </div>
-          <div class="comparison-divider"></div>
-          <div class="comparison-col">
-            <div class="comparison-header comparison-os">OperatorOS</div>
-            <ul class="comparison-list comparison-list-os">
-              <li>Surfaces what matters before you ask</li>
-              <li>Moves decisions forward for you</li>
-              <li>Protects time and capacity proactively</li>
-              <li>Reduces what you carry manually</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SECTION 6 — AUDIENCE FIT (Text section)
-    ============================================================ -->
-    <section class="audience section-padded" id="for-you">
-      <div class="container-narrow">
-        <div class="section-eyebrow reveal-fade">Who It's For</div>
-        <h2 class="section-headline reveal-up">
-          Built for women who operate<br />at a high level.
-        </h2>
-
-        <div class="audience-body reveal-up reveal-delay-1">
-          <p class="audience-main">
-            For women who lead teams, manage complexity,<br />
-            carry invisible load, and need clarity without friction.
-          </p>
-          <p class="audience-sub">
-            Because the day is rarely just about what's on the calendar.
-          </p>
-        </div>
-
-        <div class="audience-tags reveal-up reveal-delay-2">
-          <span class="audience-tag">Founders</span>
-          <span class="audience-tag">Executives</span>
-          <span class="audience-tag">Operators</span>
-          <span class="audience-tag">Dealmakers</span>
-          <span class="audience-tag">Those who lead</span>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         CINEMATIC BREAK 3 — PRESENCE IMAGE
-         "It's there when you need it."
-    ============================================================ -->
-    <section class="cinematic-break cinematic-break--presence" aria-label="Visual break: always present">
-      <div class="cinematic-break__bg" style="background-image: url('images/presence-bg.jpg');"></div>
-      <div class="cinematic-break__overlay cinematic-break__overlay--dark"></div>
-      <div class="cinematic-break__content reveal-up">
-        <p class="cinematic-break__line">Speak to it.</p>
-        <p class="cinematic-break__line cinematic-break__line--dim">Let it reach you when timing matters.</p>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SECTION 7 — PRESENCE LAYER (Text section)
-    ============================================================ -->
-    <section class="presence section-padded">
-      <div class="container-narrow">
-        <div class="presence-inner reveal-up">
-          <div class="section-eyebrow">Always Present</div>
-          <h2 class="section-headline">It's there when you need it.</h2>
-          <div class="presence-lines">
-            <div class="presence-line reveal-up reveal-delay-1">Ask what matters.</div>
-            <div class="presence-line reveal-up reveal-delay-2">Tell it to move something.</div>
-            <div class="presence-line reveal-up reveal-delay-3">Get what you need—<br class="hide-desktop"/>without opening five tools.</div>
-          </div>
-          <p class="presence-sub reveal-fade reveal-delay-4">
-            Speak to it. Let it reach you when timing matters.
-          </p>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SECTION 8 — PERFORMANCE PROTECTION (Text section)
-    ============================================================ -->
-    <section class="performance section-padded">
-      <div class="container-narrow">
-        <div class="perf-inner">
-          <div class="section-eyebrow reveal-fade">Performance</div>
-          <h2 class="section-headline reveal-up">It protects how you operate.</h2>
-
-          <div class="perf-lines">
-            <div class="perf-line reveal-up reveal-delay-1">
-              <span class="perf-dash">—</span>
-              <span>It reduces overload.</span>
-            </div>
-            <div class="perf-line reveal-up reveal-delay-2">
-              <span class="perf-dash">—</span>
-              <span>It creates space.</span>
-            </div>
-            <div class="perf-line reveal-up reveal-delay-3">
-              <span class="perf-dash">—</span>
-              <span>It helps you stay sharp—without burning out.</span>
-            </div>
-          </div>
-
-          <p class="perf-footnote reveal-fade reveal-delay-4">
-            Because performance is not just about doing more.<br />
-            It's about protecting what matters.
-          </p>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SECTION 9 — FINAL CLOSE / CTA
-         Pre-headline: "Private. Limited. Intentional."
-    ============================================================ -->
-    <section class="closing section-padded" id="access">
-      <div class="container-narrow closing-inner">
-        <div class="closing-bg-glow"></div>
-
-        <!-- Pre-headline: Decision moment -->
-        <div class="closing-pre reveal-fade">
-          <span class="closing-pre-dot"></span>
-          <span>Private. Limited. Intentional.</span>
-          <span class="closing-pre-dot"></span>
-        </div>
-
-        <h2 class="closing-headline reveal-up">
-          This isn't another tool.
-        </h2>
-        <h2 class="closing-headline closing-headline-b reveal-up reveal-delay-1">
-          It's how you run everything.
-        </h2>
-
-        <p class="closing-sub reveal-up reveal-delay-2">
-          OperatorOS is not for everyone.<br />
-          It's for women who already know they need something different.
-        </p>
-
-        <div class="closing-actions reveal-up reveal-delay-3">
-          <a href="#" class="btn-primary btn-large">Request Access</a>
-          <a href="#experience" class="btn-ghost">See the Experience</a>
-        </div>
-
-        <p class="closing-note reveal-fade reveal-delay-4">
-          Limited early access. By invitation and application.
-        </p>
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <span class="logo-mark">O</span>
-        <span class="logo-text">OperatorOS</span>
-      </div>
-      <div class="footer-links">
-        <a href="#" class="footer-link">Privacy</a>
-        <a href="#" class="footer-link">Terms</a>
-        <a href="#" class="footer-link">Contact</a>
-      </div>
-      <div class="footer-copy">
-        © 2025 OperatorOS. All rights reserved.
+      <div class="text-center">
+        <div class="text-2xl font-bold text-white">Early</div>
+        <div class="text-xs text-[#555] mt-1 uppercase tracking-widest">Capital Alignment</div>
       </div>
     </div>
-  </footer>
 
-  <script src="js/main.js"></script>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-40">
+    <span class="text-[10px] uppercase tracking-widest text-[#555]">Scroll</span>
+    <i class="fas fa-chevron-down text-[#555] text-xs"></i>
+  </div>
+</section>
+
+
+<div class="section-divider max-w-5xl"></div>
+
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SECTION 2 â€” WHAT WE DO
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="what-we-do" class="relative py-28 px-6 overflow-hidden">
+
+  <div class="glow-blob w-[400px] h-[400px] bg-white opacity-[0.015] top-0 right-[-100px]"></div>
+
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Label -->
+    <div class="pill mb-6 reveal" style="width:fit-content">
+      <span class="dot"></span>
+      What We Do
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Left: text -->
+      <div>
+        <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black leading-tight tracking-tight mb-6 text-gradient">
+          A lab built for speed,<br/>precision & results.
+        </h2>
+        <p class="reveal reveal-delay-2 text-[#888] leading-relaxed text-base md:text-lg">
+          CSV Ventures operates as a closed-loop venture studio. We identify high-potential concepts, strip them to their core, and launch validated MVPs with real users â€” connecting platform traction to investor readiness from day one. We don't move slow. Every platform we build goes through a disciplined loop of creation, testing, and data-backed scaling.
+        </p>
+      </div>
+
+      <!-- Right: bullet points -->
+      <div class="flex flex-col gap-5">
+
+        <!-- Bullet 1 -->
+        <div class="card reveal reveal-delay-1 p-6 flex gap-5 items-start">
+          <div class="flex-shrink-0 w-10 h-10 rounded-md bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center">
+            <i class="fas fa-bolt text-white text-sm"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white mb-1 text-[15px]">MVP Builds</h3>
+            <p class="text-[#666] text-sm leading-relaxed">Rapid design-to-deploy cycles. We build lean, functional platforms fast â€” cutting noise, keeping signal.</p>
+          </div>
+        </div>
+
+        <!-- Bullet 2 -->
+        <div class="card reveal reveal-delay-2 p-6 flex gap-5 items-start">
+          <div class="flex-shrink-0 w-10 h-10 rounded-md bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center">
+            <i class="fas fa-users text-white text-sm"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white mb-1 text-[15px]">User Validation</h3>
+            <p class="text-[#666] text-sm leading-relaxed">Real users. Real feedback. We test with curated early cohorts to surface product-market fit signals before scaling.</p>
+          </div>
+        </div>
+
+        <!-- Bullet 3 -->
+        <div class="card reveal reveal-delay-3 p-6 flex gap-5 items-start">
+          <div class="flex-shrink-0 w-10 h-10 rounded-md bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center">
+            <i class="fas fa-chart-line text-white text-sm"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white mb-1 text-[15px]">Investor Alignment</h3>
+            <p class="text-[#666] text-sm leading-relaxed">We align early capital with platform milestones â€” not promises. Investors see traction before they commit.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider max-w-5xl"></div>
+
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SECTION 3 â€” HOW IT WORKS
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="how-it-works" class="relative py-28 px-6 overflow-hidden">
+
+  <div class="glow-blob w-[500px] h-[500px] bg-white opacity-[0.015] bottom-0 left-[-150px]"></div>
+
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <div class="pill mb-6 reveal mx-auto" style="width:fit-content">
+        <span class="dot"></span>
+        How It Works
+      </div>
+      <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
+        Five steps. One mission.
+      </h2>
+      <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-lg mx-auto text-base">
+        Every venture we build moves through the same disciplined process â€” from raw concept to scaled platform.
+      </p>
+    </div>
+
+    <!-- Desktop: horizontal steps -->
+    <div class="hidden md:grid grid-cols-5 gap-4 relative">
+
+      <!-- Connector line -->
+      <div class="absolute top-7 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-[#2a2a2a] to-transparent z-0"></div>
+
+      <!-- Step 1 -->
+      <div class="reveal reveal-delay-1 flex flex-col items-center text-center group">
+        <div class="step-badge group-hover:border-[#555] group-hover:bg-[#1a1a1a] mb-5 z-10 relative">
+          <i class="fas fa-lightbulb text-base"></i>
+        </div>
+        <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 01</span>
+        <h3 class="font-bold text-white text-[15px] mb-2">Idea</h3>
+        <p class="text-[#555] text-xs leading-relaxed">We source high-signal concepts with real market pull.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="reveal reveal-delay-2 flex flex-col items-center text-center group">
+        <div class="step-badge group-hover:border-[#555] group-hover:bg-[#1a1a1a] mb-5 z-10 relative">
+          <i class="fas fa-code text-base"></i>
+        </div>
+        <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 02</span>
+        <h3 class="font-bold text-white text-[15px] mb-2">Build</h3>
+        <p class="text-[#555] text-xs leading-relaxed">Rapid MVP development â€” functional, lean, and fast.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="reveal reveal-delay-3 flex flex-col items-center text-center group">
+        <div class="step-badge group-hover:border-[#555] group-hover:bg-[#1a1a1a] mb-5 z-10 relative">
+          <i class="fas fa-flask text-base"></i>
+        </div>
+        <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 03</span>
+        <h3 class="font-bold text-white text-[15px] mb-2">Test</h3>
+        <p class="text-[#555] text-xs leading-relaxed">Live testing with early cohorts in real environments.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="reveal reveal-delay-4 flex flex-col items-center text-center group">
+        <div class="step-badge group-hover:border-[#555] group-hover:bg-[#1a1a1a] mb-5 z-10 relative">
+          <i class="fas fa-check-circle text-base"></i>
+        </div>
+        <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 04</span>
+        <h3 class="font-bold text-white text-[15px] mb-2">Validate</h3>
+        <p class="text-[#555] text-xs leading-relaxed">Data confirms product-market fit before scaling.</p>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="reveal reveal-delay-5 flex flex-col items-center text-center group">
+        <div class="step-badge group-hover:border-[#555] group-hover:bg-[#1a1a1a] mb-5 z-10 relative">
+          <i class="fas fa-rocket text-base"></i>
+        </div>
+        <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 05</span>
+        <h3 class="font-bold text-white text-[15px] mb-2">Scale</h3>
+        <p class="text-[#555] text-xs leading-relaxed">Capital deploys. Platform grows. We scale what works.</p>
+      </div>
+
+    </div>
+
+    <!-- Mobile: vertical steps -->
+    <div class="md:hidden flex flex-col gap-0">
+      <!-- Step items -->
+      <div class="reveal flex gap-5 pb-10 relative">
+        <div class="flex flex-col items-center">
+          <div class="step-badge flex-shrink-0"><i class="fas fa-lightbulb text-base"></i></div>
+          <div class="w-px flex-1 bg-[#1f1f1f] mt-3"></div>
+        </div>
+        <div class="pt-3">
+          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 01</span>
+          <h3 class="font-bold text-white mt-1 mb-2">Idea</h3>
+          <p class="text-[#666] text-sm leading-relaxed">We source high-signal concepts with real market pull.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1 flex gap-5 pb-10 relative">
+        <div class="flex flex-col items-center">
+          <div class="step-badge flex-shrink-0"><i class="fas fa-code text-base"></i></div>
+          <div class="w-px flex-1 bg-[#1f1f1f] mt-3"></div>
+        </div>
+        <div class="pt-3">
+          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 02</span>
+          <h3 class="font-bold text-white mt-1 mb-2">Build</h3>
+          <p class="text-[#666] text-sm leading-relaxed">Rapid MVP development â€” functional, lean, and fast.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2 flex gap-5 pb-10 relative">
+        <div class="flex flex-col items-center">
+          <div class="step-badge flex-shrink-0"><i class="fas fa-flask text-base"></i></div>
+          <div class="w-px flex-1 bg-[#1f1f1f] mt-3"></div>
+        </div>
+        <div class="pt-3">
+          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 03</span>
+          <h3 class="font-bold text-white mt-1 mb-2">Test</h3>
+          <p class="text-[#666] text-sm leading-relaxed">Live testing with early cohorts in real environments.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-3 flex gap-5 pb-10 relative">
+        <div class="flex flex-col items-center">
+          <div class="step-badge flex-shrink-0"><i class="fas fa-check-circle text-base"></i></div>
+          <div class="w-px flex-1 bg-[#1f1f1f] mt-3"></div>
+        </div>
+        <div class="pt-3">
+          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 04</span>
+          <h3 class="font-bold text-white mt-1 mb-2">Validate</h3>
+          <p class="text-[#666] text-sm leading-relaxed">Data confirms product-market fit before scaling.</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-4 flex gap-5">
+        <div class="flex flex-col items-center">
+          <div class="step-badge flex-shrink-0"><i class="fas fa-rocket text-base"></i></div>
+        </div>
+        <div class="pt-3">
+          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 05</span>
+          <h3 class="font-bold text-white mt-1 mb-2">Scale</h3>
+          <p class="text-[#666] text-sm leading-relaxed">Capital deploys. Platform grows. We scale what works.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="section-divider max-w-5xl"></div>
+
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SECTION 4 â€” WHAT MAKES US DIFFERENT
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="different" class="relative py-28 px-6 overflow-hidden">
+
+  <div class="glow-blob w-[450px] h-[450px] bg-white opacity-[0.02] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <div class="pill mb-6 reveal mx-auto" style="width:fit-content">
+        <span class="dot"></span>
+        What Makes Us Different
+      </div>
+      <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
+        Built different.<br/>On purpose.
+      </h2>
+    </div>
+
+    <!-- Statements grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Statement 1 -->
+      <div class="card reveal reveal-delay-1 p-8">
+        <div class="text-[#333] text-5xl font-black mb-4 leading-none">01</div>
+        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">We Operate Like Founders, Not Funds.</h3>
+        <p class="text-[#666] text-sm leading-relaxed">CSV Ventures doesn't just write checks. We're in the trenches â€” building, testing, iterating. Every platform gets founder-level attention and energy.</p>
+      </div>
+
+      <!-- Statement 2 -->
+      <div class="card reveal reveal-delay-2 p-8">
+        <div class="text-[#333] text-5xl font-black mb-4 leading-none">02</div>
+        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Traction Before Capital. Always.</h3>
+        <p class="text-[#666] text-sm leading-relaxed">We validate with real users before raising. Investors see live data, not decks. This creates better deals, better companies, and better outcomes for everyone.</p>
+      </div>
+
+      <!-- Statement 3 -->
+      <div class="card reveal reveal-delay-3 p-8">
+        <div class="text-[#333] text-5xl font-black mb-4 leading-none">03</div>
+        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Speed Is the Strategy.</h3>
+        <p class="text-[#666] text-sm leading-relaxed">Slow builds kill momentum. We move at startup speed â€” weeks not months â€” so market timing stays in our favor and learnings compound faster.</p>
+      </div>
+
+      <!-- Statement 4 -->
+      <div class="card reveal reveal-delay-4 p-8">
+        <div class="text-[#333] text-5xl font-black mb-4 leading-none">04</div>
+        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Private. Intentional. Selective.</h3>
+        <p class="text-[#666] text-sm leading-relaxed">CSV Ventures is not a public accelerator. We work with a tight circle of operators, builders, and investors who believe in doing great work without the noise.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider max-w-5xl"></div>
+
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SECTION 5 â€” FOUNDERS
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="founders" class="relative py-28 px-6 overflow-hidden">
+
+  <div class="glow-blob w-[400px] h-[400px] bg-white opacity-[0.015] top-0 right-0"></div>
+
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <div class="pill mb-6 reveal mx-auto" style="width:fit-content">
+        <span class="dot"></span>
+        The Founders
+      </div>
+      <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
+        Built by builders.
+      </h2>
+      <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-md mx-auto text-base">
+        CSV Ventures was founded by operators who've been in the room â€” building products, managing capital, and scaling platforms.
+      </p>
+    </div>
+
+    <!-- Founders grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Cory -->
+      <div class="founder-card card reveal reveal-delay-1 p-8 flex flex-col items-center text-center">
+        <div class="avatar-ring w-20 h-20 rounded-full bg-[#1a1a1a] mb-6 overflow-hidden">
+          <img src="assets/cory.jpg" alt="Cory â€” Founder & CEO, CSV Ventures" class="w-full h-full object-cover object-top" />
+        </div>
+        <div class="pill mb-3">
+          <span class="dot" style="background: #fff;"></span>
+          Founder & CEO
+        </div>
+        <h3 class="text-white font-bold text-xl mt-2 mb-1">Cory</h3>
+        <p class="text-[#444] text-xs uppercase tracking-widest mb-4">Founder & CEO, CSV Ventures</p>
+
+        <!-- Short bio -->
+        <p class="text-[#555] text-sm leading-relaxed mb-4">
+          Builder, operator, and strategic leader focused on creating systems that drive impact, scale, and long-term value â€” spanning entrepreneurship, real estate, sports, wellness, and capital development.
+        </p>
+
+        <!-- Expandable full bio -->
+        <div id="cory-bio-full" class="hidden text-left space-y-3 mb-4">
+          <p class="text-[#555] text-sm leading-relaxed">
+            As Founder & CEO of CSV Ventures, Cory leads the firm's venture creation engine â€” originating ideas, driving product development, and setting strategic direction across all platforms. His role is centered on identifying high-potential opportunities, building them into tangible products, and guiding them through a disciplined lifecycle of validation, scale, or strategic integration.
+          </p>
+          <p class="text-[#555] text-sm leading-relaxed">
+            Cory's experience includes launching and scaling businesses, working across the capital stack, and operating within both private and institutional environments. He has been involved in raising significant capital and structuring opportunities that align investors, operators, and communities. His approach is rooted in building systems â€” not just companies â€” that create repeatable success.
+          </p>
+          <p class="text-[#555] text-sm leading-relaxed">
+            Known for his forward-thinking mindset and ability to execute under pressure, Cory operates with a clear philosophy: take care of people, create meaningful impact, and build ventures that generate sustainable value. At CSV Ventures, he applies that philosophy through a structured, evidence-driven approach â€” transforming ideas into assets and opportunities into scalable platforms.
+          </p>
+        </div>
+
+        <!-- Read more toggle -->
+        <button
+          onclick="toggleBio('cory-bio-full', this)"
+          class="text-[#555] hover:text-[#888] text-xs transition-colors flex items-center gap-1 mx-auto mb-5"
+        >
+          <span>Read more</span>
+          <i class="fas fa-chevron-down text-[10px] transition-transform duration-300"></i>
+        </button>
+
+        <!-- Specialty tags -->
+        <div class="flex flex-wrap gap-2 justify-center mb-6">
+          <span class="pill text-[10px] py-1 px-3">Venture Creation</span>
+          <span class="pill text-[10px] py-1 px-3">Capital Development</span>
+          <span class="pill text-[10px] py-1 px-3">Strategic Leadership</span>
+        </div>
+
+        <div class="flex gap-3">
+          <div class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center hover:border-[#555] transition-colors cursor-pointer">
+            <i class="fab fa-linkedin-in text-[#666] text-xs"></i>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center hover:border-[#555] transition-colors cursor-pointer">
+            <i class="fab fa-x-twitter text-[#666] text-xs"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seth -->
+      <div class="founder-card card reveal reveal-delay-2 p-8 flex flex-col items-center text-center">
+        <div class="avatar-ring w-20 h-20 rounded-full bg-[#1a1a1a] mb-6 overflow-hidden">
+          <img src="assets/seth.jpg" alt="Seth â€” Co-Founder, CSV Ventures" class="w-full h-full object-cover object-top" />
+        </div>
+        <div class="pill mb-3">
+          <span class="dot"></span>
+          Co-Founder
+        </div>
+        <h3 class="text-white font-bold text-xl mt-2 mb-1">Seth</h3>
+        <p class="text-[#444] text-xs uppercase tracking-widest mb-4">Co-Founder, CSV Ventures</p>
+
+        <!-- Short bio -->
+        <p class="text-[#555] text-sm leading-relaxed mb-4">
+          Results-driven operator specializing in user acquisition, market validation, and early-stage growth strategy â€” with a background spanning technology, B2B environments, and outreach marketing.
+        </p>
+
+        <!-- Expandable full bio -->
+        <div id="seth-bio-full" class="hidden text-left space-y-3 mb-4">
+          <p class="text-[#555] text-sm leading-relaxed">
+            At CSV Ventures, Seth leads the front line of validation â€” designing and executing targeted outreach campaigns, building early user pipelines, and generating the market signal required to determine whether a platform is worth scaling.
+          </p>
+          <p class="text-[#555] text-sm leading-relaxed">
+            His ability to connect directly with users, uncover real needs, and convert conversations into traction allows CSV Ventures to move quickly from idea to evidence.
+          </p>
+          <p class="text-[#555] text-sm leading-relaxed">
+            Known for a relationship-first approach, Seth combines persistence, strategic communication, and market insight to build trust and drive engagement â€” ensuring every platform is grounded in real demand, not assumptions.
+          </p>
+        </div>
+
+        <!-- Read more toggle -->
+        <button
+          onclick="toggleBio('seth-bio-full', this)"
+          class="text-[#555] hover:text-[#888] text-xs transition-colors flex items-center gap-1 mx-auto mb-5"
+        >
+          <span>Read more</span>
+          <i class="fas fa-chevron-down text-[10px] transition-transform duration-300"></i>
+        </button>
+
+        <!-- Specialty tags -->
+        <div class="flex flex-wrap gap-2 justify-center mb-6">
+          <span class="pill text-[10px] py-1 px-3">User Acquisition</span>
+          <span class="pill text-[10px] py-1 px-3">Market Validation</span>
+          <span class="pill text-[10px] py-1 px-3">Growth Strategy</span>
+        </div>
+
+        <div class="flex gap-3">
+          <div class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center hover:border-[#555] transition-colors cursor-pointer">
+            <i class="fab fa-linkedin-in text-[#666] text-xs"></i>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center hover:border-[#555] transition-colors cursor-pointer">
+            <i class="fab fa-x-twitter text-[#666] text-xs"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vince -->
+      <div class="founder-card card reveal reveal-delay-3 p-8 flex flex-col items-center text-center">
+        <div class="avatar-ring w-20 h-20 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 overflow-hidden">
+          <span class="text-2xl font-black text-white">V</span>
+        </div>
+        <div class="pill mb-3">
+          <span class="dot"></span>
+          Co-Founder
+        </div>
+        <h3 class="text-white font-bold text-xl mt-2 mb-3">Vince</h3>
+        <p class="text-[#444] text-xs italic leading-relaxed">
+          Bio coming soon.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider max-w-5xl"></div>
+
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SECTION 6 â€” OPPORTUNITIES
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="opportunities" class="relative py-28 px-6 overflow-hidden">
+
+  <div class="glow-blob w-[450px] h-[450px] bg-white opacity-[0.02] bottom-0 left-[-100px]"></div>
+
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <div class="pill mb-6 reveal mx-auto" style="width:fit-content">
+        <span class="dot"></span>
+        Opportunities
+      </div>
+      <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
+        Join the lab.
+      </h2>
+      <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-xl mx-auto text-base">
+        Whether you're a user who wants in early or an investor looking for validated deal flow â€” there's a seat at the table.
+      </p>
+    </div>
+
+    <!-- Two columns -->
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Column 1: Users / Testers -->
+      <div class="card reveal reveal-delay-1 p-10 relative overflow-hidden">
+
+        <!-- Subtle top accent -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3a3a3a] to-transparent"></div>
+
+        <div class="w-12 h-12 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center mb-6">
+          <i class="fas fa-user-check text-white text-lg"></i>
+        </div>
+
+        <h3 class="text-white font-bold text-2xl mb-2 tracking-tight">For Users & Testers</h3>
+        <p class="text-[#555] text-sm mb-8 leading-relaxed">Get early access to platforms before they launch. Shape the product. Earn exclusive perks and early-adopter status.</p>
+
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Be among the first users on new platforms before public launch</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Provide feedback that directly shapes the product roadmap</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Receive exclusive early-adopter benefits and rewards</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Join a community of people building the future of digital platforms</span>
+          </li>
+        </ul>
+
+        <a href="#cta" class="btn-secondary w-full justify-center">
+          Request Early Access
+          <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+
+      </div>
+
+      <!-- Column 2: Investors / Partners -->
+      <div class="card reveal reveal-delay-2 p-10 relative overflow-hidden" style="border-color: #2a2a2a; background: linear-gradient(135deg, #111 0%, #141414 100%);">
+
+        <!-- Subtle top accent -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+        <div class="w-12 h-12 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center mb-6">
+          <i class="fas fa-briefcase text-white text-lg"></i>
+        </div>
+
+        <h3 class="text-white font-bold text-2xl mb-2 tracking-tight">For Investors & Partners</h3>
+        <p class="text-[#555] text-sm mb-8 leading-relaxed">Access validated deal flow backed by real user data. Co-build, co-invest, or align capital with platforms showing real traction.</p>
+
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Access exclusive, pre-public investment opportunities</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Review live user validation data before committing capital</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Co-build ventures with aligned operators from day one</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Join a private network of operators, founders, and capital allocators</span>
+          </li>
+        </ul>
+
+        <a href="#cta" class="btn-primary w-full justify-center">
+          <i class="fas fa-handshake"></i>
+          Partner With Us
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider max-w-5xl"></div>
+
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SECTION 7 â€” FINAL CTA
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<section id="cta" class="relative py-36 px-6 overflow-hidden">
+
+  <!-- Background radial glow -->
+  <div class="absolute inset-0 z-0" style="background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%);"></div>
+
+  <!-- Grid -->
+  <div class="absolute inset-0 z-0" style="background-image: linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px); background-size: 60px 60px; opacity: 0.15;"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+
+    <!-- Label -->
+    <div class="pill mb-8 reveal mx-auto" style="width:fit-content">
+      <span class="dot" style="background:#888;"></span>
+      Ready? Let's Move.
+    </div>
+
+    <h2 class="reveal reveal-delay-1 text-[clamp(2.5rem,6vw,4.5rem)] font-black leading-[1.05] tracking-[-0.03em] mb-6">
+      <span class="text-gradient">The next platform</span><br />
+      <span class="text-gradient">starts here.</span>
+    </h2>
+
+    <p class="reveal reveal-delay-2 text-[#666] text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-12">
+      Whether you're an early user, a potential investor, or a builder looking to collaborate â€” the door is open. But not forever.
+    </p>
+
+    <!-- Buttons -->
+    <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center mb-16">
+      <a href="mailto:hello@csvventures.com" class="btn-primary text-base px-8 py-4" rel="noopener">
+        <i class="fas fa-handshake"></i>
+        Partner With Us
+      </a>
+      <a href="mailto:access@csvventures.com" class="btn-secondary text-base px-8 py-4" rel="noopener">
+        Get Early Access
+        <i class="fas fa-arrow-right text-sm"></i>
+      </a>
+    </div>
+
+    <!-- Contact strip -->
+    <div class="reveal reveal-delay-4 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 mb-12 flex-wrap">
+      <a href="tel:+14698986013" class="flex items-center gap-2 text-[#444] hover:text-[#888] transition-colors text-xs group">
+        <i class="fas fa-phone text-[#333] group-hover:text-[#666] transition-colors"></i>
+        (469) 898-6013
+      </a>
+      <span class="hidden sm:block w-px h-4 bg-[#1f1f1f]"></span>
+      <span class="flex items-center gap-2 text-[#444] text-xs">
+        <i class="fas fa-fax text-[#333]"></i>
+        (469) 985-2024
+      </span>
+      <span class="hidden sm:block w-px h-4 bg-[#1f1f1f]"></span>
+      <a href="mailto:hello@csvventures.com" class="flex items-center gap-2 text-[#444] hover:text-[#888] transition-colors text-xs group">
+        <i class="fas fa-envelope text-[#333] group-hover:text-[#666] transition-colors"></i>
+        hello@csvventures.com
+      </a>
+      <span class="hidden sm:block w-px h-4 bg-[#1f1f1f]"></span>
+      <span class="flex items-center gap-2 text-[#444] text-xs">
+        <i class="fas fa-location-dot text-[#333]"></i>
+        6160 Warren Pkwy, Suite 100, Frisco TX 75034
+      </span>
+    </div>
+
+    <!-- Divider -->
+    <div class="section-divider mb-8"></div>
+
+    <!-- Trust line -->
+    <p class="text-[#333] text-xs tracking-widest uppercase">Private. Vetted. By invitation &amp; application only.</p>
+
+  </div>
+</section>
+
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     FOOTER
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="border-t border-[#1a1a1a] pt-16 pb-10 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Top row: logo + nav + contact -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+      <!-- Col 1: Brand -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-7 h-7 rounded bg-white flex items-center justify-center flex-shrink-0">
+            <span class="text-black font-black text-xs">CSV</span>
+          </div>
+          <span class="text-white text-sm font-semibold tracking-wide">CSV Ventures</span>
+        </div>
+        <p class="text-[#444] text-xs leading-relaxed max-w-[220px]">
+          A private venture lab building, testing, and scaling the next generation of digital platforms.
+        </p>
+      </div>
+
+      <!-- Col 2: Nav links -->
+      <div>
+        <p class="text-[#333] text-[10px] uppercase tracking-[0.15em] mb-4 font-semibold">Navigate</p>
+        <ul class="space-y-3">
+          <li><a href="#what-we-do"    class="text-[#444] hover:text-[#888] text-xs transition-colors">What We Do</a></li>
+          <li><a href="#how-it-works"  class="text-[#444] hover:text-[#888] text-xs transition-colors">How It Works</a></li>
+          <li><a href="#founders"      class="text-[#444] hover:text-[#888] text-xs transition-colors">Founders</a></li>
+          <li><a href="#opportunities" class="text-[#444] hover:text-[#888] text-xs transition-colors">Opportunities</a></li>
+          <li><a href="#cta"           class="text-[#444] hover:text-[#888] text-xs transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Contact info -->
+      <div>
+        <p class="text-[#333] text-[10px] uppercase tracking-[0.15em] mb-4 font-semibold">Contact</p>
+        <ul class="space-y-3">
+
+          <!-- Address -->
+          <li class="flex items-start gap-3">
+            <i class="fas fa-location-dot text-[#444] text-xs mt-[2px] flex-shrink-0 w-3 text-center"></i>
+            <address class="not-italic text-[#444] text-xs leading-relaxed">
+              6160 Warren Parkway, Suite 100<br />
+              Frisco, TX 75034
+            </address>
+          </li>
+
+          <!-- Phone -->
+          <li class="flex items-center gap-3">
+            <i class="fas fa-phone text-[#444] text-xs flex-shrink-0 w-3 text-center"></i>
+            <a href="tel:+14698986013" class="text-[#444] hover:text-[#888] text-xs transition-colors">
+              (469) 898-6013
+            </a>
+          </li>
+
+          <!-- Fax -->
+          <li class="flex items-center gap-3">
+            <i class="fas fa-fax text-[#444] text-xs flex-shrink-0 w-3 text-center"></i>
+            <span class="text-[#444] text-xs">
+              (469) 985-2024
+            </span>
+          </li>
+
+          <!-- Email -->
+          <li class="flex items-center gap-3">
+            <i class="fas fa-envelope text-[#444] text-xs flex-shrink-0 w-3 text-center"></i>
+            <a href="mailto:hello@csvventures.com" class="text-[#444] hover:text-[#888] text-xs transition-colors">
+              hello@csvventures.com
+            </a>
+          </li>
+
+          <!-- Web -->
+          <li class="flex items-center gap-3">
+            <i class="fas fa-globe text-[#444] text-xs flex-shrink-0 w-3 text-center"></i>
+            <a href="https://csvventures.com" class="text-[#444] hover:text-[#888] text-xs transition-colors">
+              csvventures.com
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-[#1a1a1a] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-[#2e2e2e] text-xs">Â© 2025 CSV Ventures. All rights reserved.</p>
+      <p class="text-[#2e2e2e] text-xs tracking-widest uppercase">Private. Vetted. Selective.</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     JAVASCRIPT
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<script>
+  /* â”€â”€ Navbar scroll behavior â”€â”€ */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar.classList.add('nav-blur');
+    } else {
+      navbar.classList.remove('nav-blur');
+    }
+  });
+
+  /* â”€â”€ Mobile menu toggle â”€â”€ */
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon   = document.getElementById('menu-icon');
+  let menuOpen = false;
+
+  menuToggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('hidden', !menuOpen);
+    menuIcon.className = menuOpen
+      ? 'fas fa-times text-lg'
+      : 'fas fa-bars text-lg';
+  });
+
+  function closeMobileMenu() {
+    menuOpen = false;
+    mobileMenu.classList.add('hidden');
+    menuIcon.className = 'fas fa-bars text-lg';
+  }
+
+  /* â”€â”€ Intersection Observer: reveal animations â”€â”€ */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer  = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+  revealEls.forEach(el => observer.observe(el));
+
+  /* â”€â”€ Hero headline typewriter effect (subtle stagger already handled by CSS) â”€â”€ */
+  // Trigger hero reveals immediately since they're in viewport on load
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.querySelectorAll('#hero .reveal').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 100);
+  });
+
+  /* â”€â”€ Smooth scroll for all anchor links â”€â”€ */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const navH = navbar.offsetHeight;
+        const targetY = target.getBoundingClientRect().top + window.scrollY - navH - 20;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* â”€â”€ Active nav highlight on scroll â”€â”€ */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('text-white', isActive);
+            link.classList.toggle('text-[#888]', !isActive);
+          });
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  sections.forEach(s => sectionObserver.observe(s));
+
+  /* â”€â”€ Founder bio expand/collapse â”€â”€ */
+  function toggleBio(id, btn) {
+    const bio  = document.getElementById(id);
+    const icon = btn.querySelector('i');
+    const label = btn.querySelector('span');
+    const isHidden = bio.classList.contains('hidden');
+    bio.classList.toggle('hidden', !isHidden);
+    icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+    label.textContent    = isHidden ? 'Read less' : 'Read more';
+  }
+
+  /* â”€â”€ Cursor glow effect (desktop only) â”€â”€ */
+  if (window.innerWidth > 768) {
+    const cursorGlow = document.createElement('div');
+    cursorGlow.style.cssText = `
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: left 0.15s ease, top 0.15s ease;
+    `;
+    document.body.appendChild(cursorGlow);
+
+    document.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top  = e.clientY + 'px';
+    });
+  }
+</script>
+
 </body>
 </html>
