@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSV Ventures â€” Build. Test. Scale.</title>
+  <title>CSV Ventures — Build. Test. Scale.</title>
   <meta name="description" content="CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment." />
 
   <!-- Canonical & Open Graph -->
   <link rel="canonical" href="https://csvventures.com/" />
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://csvventures.com/" />
-  <meta property="og:title"       content="CSV Ventures â€” Build. Test. Scale." />
+  <meta property="og:title"       content="CSV Ventures — Build. Test. Scale." />
   <meta property="og:description" content="CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment." />
   <meta property="og:site_name"   content="CSV Ventures" />
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="CSV Ventures â€” Build. Test. Scale." />
+  <meta name="twitter:title"       content="CSV Ventures — Build. Test. Scale." />
   <meta name="twitter:description" content="CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment." />
   <meta name="twitter:site"        content="@csvventures" />
 
@@ -73,7 +73,7 @@
   </script>
 
   <style>
-    /* â”€â”€ Base â”€â”€ */
+    /* ── Base ── */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -83,7 +83,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* â”€â”€ Noise texture overlay â”€â”€ */
+    /* ── Noise texture overlay ── */
     body::before {
       content: '';
       position: fixed;
@@ -94,7 +94,7 @@
       opacity: 0.4;
     }
 
-    /* â”€â”€ Glow blobs â”€â”€ */
+    /* ── Glow blobs ── */
     .glow-blob {
       position: absolute;
       border-radius: 50%;
@@ -103,7 +103,7 @@
       z-index: 0;
     }
 
-    /* â”€â”€ Gradient text â”€â”€ */
+    /* ── Gradient text ── */
     .text-gradient {
       background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
       -webkit-background-clip: text;
@@ -117,7 +117,7 @@
       background-clip: text;
     }
 
-    /* â”€â”€ Buttons â”€â”€ */
+    /* ── Buttons ── */
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -158,7 +158,7 @@
       transform: translateY(-2px);
     }
 
-    /* â”€â”€ Cards â”€â”€ */
+    /* ── Cards ── */
     .card {
       background: #111111;
       border: 1px solid #1F1F1F;
@@ -171,7 +171,7 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    /* â”€â”€ Step connector â”€â”€ */
+    /* ── Step connector ── */
     .step-connector {
       position: relative;
     }
@@ -185,14 +185,14 @@
       background: linear-gradient(90deg, #2a2a2a, #3a3a3a, #2a2a2a);
     }
 
-    /* â”€â”€ Divider â”€â”€ */
+    /* ── Divider ── */
     .section-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, #2a2a2a 30%, #2a2a2a 70%, transparent);
       margin: 0 auto;
     }
 
-    /* â”€â”€ Nav â”€â”€ */
+    /* ── Nav ── */
     .nav-blur {
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -200,7 +200,7 @@
       border-bottom: 1px solid #1a1a1a;
     }
 
-    /* â”€â”€ Reveal animations (triggered by IntersectionObserver) â”€â”€ */
+    /* ── Reveal animations (triggered by IntersectionObserver) ── */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -216,7 +216,7 @@
     .reveal-delay-4 { transition-delay: 0.4s; }
     .reveal-delay-5 { transition-delay: 0.5s; }
 
-    /* â”€â”€ Number badge â”€â”€ */
+    /* ── Number badge ── */
     .step-badge {
       width: 56px; height: 56px;
       border-radius: 50%;
@@ -231,12 +231,12 @@
       transition: border-color 0.3s, background 0.3s;
     }
 
-    /* â”€â”€ Mobile menu â”€â”€ */
+    /* ── Mobile menu ── */
     #mobile-menu {
       transition: all 0.3s ease;
     }
 
-    /* â”€â”€ Founder avatar ring â”€â”€ */
+    /* ── Founder avatar ring ── */
     .avatar-ring {
       border: 1px solid #2a2a2a;
       transition: border-color 0.3s;
@@ -245,7 +245,7 @@
       border-color: #555;
     }
 
-    /* â”€â”€ Horizontal scroll for steps on mobile â”€â”€ */
+    /* ── Horizontal scroll for steps on mobile ── */
     .steps-scroll {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -253,10 +253,10 @@
     }
     .steps-scroll::-webkit-scrollbar { display: none; }
 
-    /* â”€â”€ Subtle horizontal rule â”€â”€ */
+    /* ── Subtle horizontal rule ── */
     hr.subtle { border-color: #1F1F1F; }
 
-    /* â”€â”€ Badge pill â”€â”€ */
+    /* ── Badge pill ── */
     .pill {
       display: inline-flex;
       align-items: center;
@@ -280,9 +280,9 @@
 </head>
 <body>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+<!-- ══════════════════════════════════════════
      NAVIGATION
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+═══════════════════════════════════════════ -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
 
@@ -326,9 +326,9 @@
 </nav>
 
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 1 â€” HERO
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════════════════════════════════════
+     SECTION 1 — HERO
+═══════════════════════════════════════════ -->
 <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-20">
 
   <!-- Background glow blobs -->
@@ -399,9 +399,9 @@
 <div class="section-divider max-w-5xl"></div>
 
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 2 â€” WHAT WE DO
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════════════════════════════════════
+     SECTION 2 — WHAT WE DO
+═══════════════════════════════════════════ -->
 <section id="what-we-do" class="relative py-28 px-6 overflow-hidden">
 
   <div class="glow-blob w-[400px] h-[400px] bg-white opacity-[0.015] top-0 right-[-100px]"></div>
@@ -422,7 +422,7 @@
           A lab built for speed,<br/>precision & results.
         </h2>
         <p class="reveal reveal-delay-2 text-[#888] leading-relaxed text-base md:text-lg">
-          CSV Ventures operates as a closed-loop venture studio. We identify high-potential concepts, strip them to their core, and launch validated MVPs with real users â€” connecting platform traction to investor readiness from day one. We don't move slow. Every platform we build goes through a disciplined loop of creation, testing, and data-backed scaling.
+          CSV Ventures operates as a closed-loop venture studio. We identify high-potential concepts, strip them to their core, and launch validated MVPs with real users — connecting platform traction to investor readiness from day one. We don't move slow. Every platform we build goes through a disciplined loop of creation, testing, and data-backed scaling.
         </p>
       </div>
 
@@ -436,7 +436,7 @@
           </div>
           <div>
             <h3 class="font-semibold text-white mb-1 text-[15px]">MVP Builds</h3>
-            <p class="text-[#666] text-sm leading-relaxed">Rapid design-to-deploy cycles. We build lean, functional platforms fast â€” cutting noise, keeping signal.</p>
+            <p class="text-[#666] text-sm leading-relaxed">Rapid design-to-deploy cycles. We build lean, functional platforms fast — cutting noise, keeping signal.</p>
           </div>
         </div>
 
@@ -458,7 +458,7 @@
           </div>
           <div>
             <h3 class="font-semibold text-white mb-1 text-[15px]">Investor Alignment</h3>
-            <p class="text-[#666] text-sm leading-relaxed">We align early capital with platform milestones â€” not promises. Investors see traction before they commit.</p>
+            <p class="text-[#666] text-sm leading-relaxed">We align early capital with platform milestones — not promises. Investors see traction before they commit.</p>
           </div>
         </div>
 
@@ -471,9 +471,9 @@
 <div class="section-divider max-w-5xl"></div>
 
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 3 â€” HOW IT WORKS
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════════════════════════════════════
+     SECTION 3 — HOW IT WORKS
+═══════════════════════════════════════════ -->
 <section id="how-it-works" class="relative py-28 px-6 overflow-hidden">
 
   <div class="glow-blob w-[500px] h-[500px] bg-white opacity-[0.015] bottom-0 left-[-150px]"></div>
@@ -490,7 +490,7 @@
         Five steps. One mission.
       </h2>
       <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-lg mx-auto text-base">
-        Every venture we build moves through the same disciplined process â€” from raw concept to scaled platform.
+        Every venture we build moves through the same disciplined process — from raw concept to scaled platform.
       </p>
     </div>
 
@@ -517,7 +517,7 @@
         </div>
         <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 02</span>
         <h3 class="font-bold text-white text-[15px] mb-2">Build</h3>
-        <p class="text-[#555] text-xs leading-relaxed">Rapid MVP development â€” functional, lean, and fast.</p>
+        <p class="text-[#555] text-xs leading-relaxed">Rapid MVP development — functional, lean, and fast.</p>
       </div>
 
       <!-- Step 3 -->
@@ -574,7 +574,7 @@
         <div class="pt-3">
           <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 02</span>
           <h3 class="font-bold text-white mt-1 mb-2">Build</h3>
-          <p class="text-[#666] text-sm leading-relaxed">Rapid MVP development â€” functional, lean, and fast.</p>
+          <p class="text-[#666] text-sm leading-relaxed">Rapid MVP development — functional, lean, and fast.</p>
         </div>
       </div>
       <div class="reveal reveal-delay-2 flex gap-5 pb-10 relative">
@@ -618,9 +618,9 @@
 <div class="section-divider max-w-5xl"></div>
 
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 4 â€” WHAT MAKES US DIFFERENT
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════════════════════════════════════
+     SECTION 4 — WHAT MAKES US DIFFERENT
+═══════════════════════════════════════════ -->
 <section id="different" class="relative py-28 px-6 overflow-hidden">
 
   <div class="glow-blob w-[450px] h-[450px] bg-white opacity-[0.02] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
@@ -645,7 +645,7 @@
       <div class="card reveal reveal-delay-1 p-8">
         <div class="text-[#333] text-5xl font-black mb-4 leading-none">01</div>
         <h3 class="text-white font-bold text-xl mb-3 tracking-tight">We Operate Like Founders, Not Funds.</h3>
-        <p class="text-[#666] text-sm leading-relaxed">CSV Ventures doesn't just write checks. We're in the trenches â€” building, testing, iterating. Every platform gets founder-level attention and energy.</p>
+        <p class="text-[#666] text-sm leading-relaxed">CSV Ventures doesn't just write checks. We're in the trenches — building, testing, iterating. Every platform gets founder-level attention and energy.</p>
       </div>
 
       <!-- Statement 2 -->
@@ -659,7 +659,7 @@
       <div class="card reveal reveal-delay-3 p-8">
         <div class="text-[#333] text-5xl font-black mb-4 leading-none">03</div>
         <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Speed Is the Strategy.</h3>
-        <p class="text-[#666] text-sm leading-relaxed">Slow builds kill momentum. We move at startup speed â€” weeks not months â€” so market timing stays in our favor and learnings compound faster.</p>
+        <p class="text-[#666] text-sm leading-relaxed">Slow builds kill momentum. We move at startup speed — weeks not months — so market timing stays in our favor and learnings compound faster.</p>
       </div>
 
       <!-- Statement 4 -->
@@ -677,9 +677,9 @@
 <div class="section-divider max-w-5xl"></div>
 
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 5 â€” FOUNDERS
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════════════════════════════════════
+     SECTION 5 — FOUNDERS
+═══════════════════════════════════════════ -->
 <section id="founders" class="relative py-28 px-6 overflow-hidden">
 
   <div class="glow-blob w-[400px] h-[400px] bg-white opacity-[0.015] top-0 right-0"></div>
@@ -696,7 +696,7 @@
         Built by builders.
       </h2>
       <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-md mx-auto text-base">
-        CSV Ventures was founded by operators who've been in the room â€” building products, managing capital, and scaling platforms.
+        CSV Ventures was founded by operators who've been in the room — building products, managing capital, and scaling platforms.
       </p>
     </div>
 
@@ -706,7 +706,7 @@
       <!-- Cory -->
       <div class="founder-card card reveal reveal-delay-1 p-8 flex flex-col items-center text-center">
         <div class="avatar-ring w-20 h-20 rounded-full bg-[#1a1a1a] mb-6 overflow-hidden">
-          <img src="assets/cory.jpg" alt="Cory â€” Founder & CEO, CSV Ventures" class="w-full h-full object-cover object-top" />
+          <img src="assets/cory.jpg" alt="Cory — Founder & CEO, CSV Ventures" class="w-full h-full object-cover object-top" />
         </div>
         <div class="pill mb-3">
           <span class="dot" style="background: #fff;"></span>
@@ -717,19 +717,19 @@
 
         <!-- Short bio -->
         <p class="text-[#555] text-sm leading-relaxed mb-4">
-          Builder, operator, and strategic leader focused on creating systems that drive impact, scale, and long-term value â€” spanning entrepreneurship, real estate, sports, wellness, and capital development.
+          Builder, operator, and strategic leader focused on creating systems that drive impact, scale, and long-term value — spanning entrepreneurship, real estate, sports, wellness, and capital development.
         </p>
 
         <!-- Expandable full bio -->
         <div id="cory-bio-full" class="hidden text-left space-y-3 mb-4">
           <p class="text-[#555] text-sm leading-relaxed">
-            As Founder & CEO of CSV Ventures, Cory leads the firm's venture creation engine â€” originating ideas, driving product development, and setting strategic direction across all platforms. His role is centered on identifying high-potential opportunities, building them into tangible products, and guiding them through a disciplined lifecycle of validation, scale, or strategic integration.
+            As Founder & CEO of CSV Ventures, Cory leads the firm's venture creation engine — originating ideas, driving product development, and setting strategic direction across all platforms. His role is centered on identifying high-potential opportunities, building them into tangible products, and guiding them through a disciplined lifecycle of validation, scale, or strategic integration.
           </p>
           <p class="text-[#555] text-sm leading-relaxed">
-            Cory's experience includes launching and scaling businesses, working across the capital stack, and operating within both private and institutional environments. He has been involved in raising significant capital and structuring opportunities that align investors, operators, and communities. His approach is rooted in building systems â€” not just companies â€” that create repeatable success.
+            Cory's experience includes launching and scaling businesses, working across the capital stack, and operating within both private and institutional environments. He has been involved in raising significant capital and structuring opportunities that align investors, operators, and communities. His approach is rooted in building systems — not just companies — that create repeatable success.
           </p>
           <p class="text-[#555] text-sm leading-relaxed">
-            Known for his forward-thinking mindset and ability to execute under pressure, Cory operates with a clear philosophy: take care of people, create meaningful impact, and build ventures that generate sustainable value. At CSV Ventures, he applies that philosophy through a structured, evidence-driven approach â€” transforming ideas into assets and opportunities into scalable platforms.
+            Known for his forward-thinking mindset and ability to execute under pressure, Cory operates with a clear philosophy: take care of people, create meaningful impact, and build ventures that generate sustainable value. At CSV Ventures, he applies that philosophy through a structured, evidence-driven approach — transforming ideas into assets and opportunities into scalable platforms.
           </p>
         </div>
 
@@ -762,7 +762,7 @@
       <!-- Seth -->
       <div class="founder-card card reveal reveal-delay-2 p-8 flex flex-col items-center text-center">
         <div class="avatar-ring w-20 h-20 rounded-full bg-[#1a1a1a] mb-6 overflow-hidden">
-          <img src="assets/seth.jpg" alt="Seth â€” Co-Founder, CSV Ventures" class="w-full h-full object-cover object-top" />
+          <img src="assets/seth.jpg" alt="Seth — Co-Founder, CSV Ventures" class="w-full h-full object-cover object-top" />
         </div>
         <div class="pill mb-3">
           <span class="dot"></span>
@@ -773,19 +773,19 @@
 
         <!-- Short bio -->
         <p class="text-[#555] text-sm leading-relaxed mb-4">
-          Results-driven operator specializing in user acquisition, market validation, and early-stage growth strategy â€” with a background spanning technology, B2B environments, and outreach marketing.
+          Results-driven operator specializing in user acquisition, market validation, and early-stage growth strategy — with a background spanning technology, B2B environments, and outreach marketing.
         </p>
 
         <!-- Expandable full bio -->
         <div id="seth-bio-full" class="hidden text-left space-y-3 mb-4">
           <p class="text-[#555] text-sm leading-relaxed">
-            At CSV Ventures, Seth leads the front line of validation â€” designing and executing targeted outreach campaigns, building early user pipelines, and generating the market signal required to determine whether a platform is worth scaling.
+            At CSV Ventures, Seth leads the front line of validation — designing and executing targeted outreach campaigns, building early user pipelines, and generating the market signal required to determine whether a platform is worth scaling.
           </p>
           <p class="text-[#555] text-sm leading-relaxed">
             His ability to connect directly with users, uncover real needs, and convert conversations into traction allows CSV Ventures to move quickly from idea to evidence.
           </p>
           <p class="text-[#555] text-sm leading-relaxed">
-            Known for a relationship-first approach, Seth combines persistence, strategic communication, and market insight to build trust and drive engagement â€” ensuring every platform is grounded in real demand, not assumptions.
+            Known for a relationship-first approach, Seth combines persistence, strategic communication, and market insight to build trust and drive engagement — ensuring every platform is grounded in real demand, not assumptions.
           </p>
         </div>
 
@@ -838,9 +838,9 @@
 <div class="section-divider max-w-5xl"></div>
 
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 6 â€” OPPORTUNITIES
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════════════════════════════════════
+     SECTION 6 — OPPORTUNITIES
+═══════════════════════════════════════════ -->
 <section id="opportunities" class="relative py-28 px-6 overflow-hidden">
 
   <div class="glow-blob w-[450px] h-[450px] bg-white opacity-[0.02] bottom-0 left-[-100px]"></div>
@@ -857,7 +857,7 @@
         Join the lab.
       </h2>
       <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-xl mx-auto text-base">
-        Whether you're a user who wants in early or an investor looking for validated deal flow â€” there's a seat at the table.
+        Whether you're a user who wants in early or an investor looking for validated deal flow — there's a seat at the table.
       </p>
     </div>
 
@@ -950,9 +950,9 @@
 <div class="section-divider max-w-5xl"></div>
 
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SECTION 7 â€” FINAL CTA
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ══════════════════════════════════════════
+     SECTION 7 — FINAL CTA
+═══════════════════════════════════════════ -->
 <section id="cta" class="relative py-36 px-6 overflow-hidden">
 
   <!-- Background radial glow -->
@@ -975,7 +975,7 @@
     </h2>
 
     <p class="reveal reveal-delay-2 text-[#666] text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-12">
-      Whether you're an early user, a potential investor, or a builder looking to collaborate â€” the door is open. But not forever.
+      Whether you're an early user, a potential investor, or a builder looking to collaborate — the door is open. But not forever.
     </p>
 
     <!-- Buttons -->
@@ -1023,9 +1023,9 @@
 </section>
 
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+<!-- ══════════════════════════════════════════
      FOOTER
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+═══════════════════════════════════════════ -->
 <footer class="border-t border-[#1a1a1a] pt-16 pb-10 px-6">
   <div class="max-w-6xl mx-auto">
 
@@ -1110,7 +1110,7 @@
 
     <!-- Bottom bar -->
     <div class="border-t border-[#1a1a1a] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-[#2e2e2e] text-xs">Â© 2025 CSV Ventures. All rights reserved.</p>
+      <p class="text-[#2e2e2e] text-xs">© 2025 CSV Ventures. All rights reserved.</p>
       <p class="text-[#2e2e2e] text-xs tracking-widest uppercase">Private. Vetted. Selective.</p>
     </div>
 
@@ -1118,11 +1118,11 @@
 </footer>
 
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+<!-- ══════════════════════════════════════════
      JAVASCRIPT
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+═══════════════════════════════════════════ -->
 <script>
-  /* â”€â”€ Navbar scroll behavior â”€â”€ */
+  /* ── Navbar scroll behavior ── */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
@@ -1132,7 +1132,7 @@
     }
   });
 
-  /* â”€â”€ Mobile menu toggle â”€â”€ */
+  /* ── Mobile menu toggle ── */
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const menuIcon   = document.getElementById('menu-icon');
@@ -1152,7 +1152,7 @@
     menuIcon.className = 'fas fa-bars text-lg';
   }
 
-  /* â”€â”€ Intersection Observer: reveal animations â”€â”€ */
+  /* ── Intersection Observer: reveal animations ── */
   const revealEls = document.querySelectorAll('.reveal');
   const observer  = new IntersectionObserver(
     (entries) => {
@@ -1167,7 +1167,7 @@
   );
   revealEls.forEach(el => observer.observe(el));
 
-  /* â”€â”€ Hero headline typewriter effect (subtle stagger already handled by CSS) â”€â”€ */
+  /* ── Hero headline typewriter effect (subtle stagger already handled by CSS) ── */
   // Trigger hero reveals immediately since they're in viewport on load
   window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
@@ -1177,7 +1177,7 @@
     }, 100);
   });
 
-  /* â”€â”€ Smooth scroll for all anchor links â”€â”€ */
+  /* ── Smooth scroll for all anchor links ── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const target = document.querySelector(anchor.getAttribute('href'));
@@ -1190,7 +1190,7 @@
     });
   });
 
-  /* â”€â”€ Active nav highlight on scroll â”€â”€ */
+  /* ── Active nav highlight on scroll ── */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
@@ -1211,7 +1211,7 @@
   );
   sections.forEach(s => sectionObserver.observe(s));
 
-  /* â”€â”€ Founder bio expand/collapse â”€â”€ */
+  /* ── Founder bio expand/collapse ── */
   function toggleBio(id, btn) {
     const bio  = document.getElementById(id);
     const icon = btn.querySelector('i');
@@ -1222,7 +1222,7 @@
     label.textContent    = isHidden ? 'Read less' : 'Read more';
   }
 
-  /* â”€â”€ Cursor glow effect (desktop only) â”€â”€ */
+  /* ── Cursor glow effect (desktop only) ── */
   if (window.innerWidth > 768) {
     const cursorGlow = document.createElement('div');
     cursorGlow.style.cssText = `
