@@ -1,25 +1,25 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSV Ventures — Build. Test. Scale.</title>
-  <meta name="description" content="CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment." />
+  <title>CW3 Ventures — Building Intelligent Companies</title>
+  <meta name="description" content="CW3 Ventures creates, builds, validates, and scales technology-driven companies focused on artificial intelligence, operational intelligence, software platforms, robotics, data systems, and emerging technologies." />
 
   <!-- Canonical & Open Graph -->
-  <link rel="canonical" href="https://csvventures.com/" />
+  <link rel="canonical" href="https://cw3ventures.com/" />
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://csvventures.com/" />
-  <meta property="og:title"       content="CSV Ventures — Build. Test. Scale." />
-  <meta property="og:description" content="CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment." />
-  <meta property="og:site_name"   content="CSV Ventures" />
+  <meta property="og:url"         content="https://cw3ventures.com/" />
+  <meta property="og:title"       content="CW3 Ventures — Building Intelligent Companies" />
+  <meta property="og:description" content="CW3 Ventures creates, builds, validates, and scales technology-driven companies focused on artificial intelligence, operational intelligence, software platforms, robotics, data systems, and emerging technologies." />
+  <meta property="og:site_name"   content="CW3 Ventures" />
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="CSV Ventures — Build. Test. Scale." />
-  <meta name="twitter:description" content="CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment." />
-  <meta name="twitter:site"        content="@csvventures" />
+  <meta name="twitter:title"       content="CW3 Ventures — Building Intelligent Companies" />
+  <meta name="twitter:description" content="CW3 Ventures creates, builds, validates, and scales technology-driven companies focused on artificial intelligence, operational intelligence, software platforms, robotics, data systems, and emerging technologies." />
+  <meta name="twitter:site"        content="@cw3ventures" />
 
   <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fff'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='10' fill='%230B0B0B'%3ECSV%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fff'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='9' fill='%230B0B0B'%3ECW3%3C/text%3E%3C/svg%3E" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -47,11 +47,15 @@ DOCTYPE html>
             muted:      '#6B6B6B',
             accent:     '#D4D4D4',
             highlight:  '#E8E8E8',
+            brand:      '#3B82F6',
+            brandlight: '#60A5FA',
+            neon:       '#22D3EE',
           },
           animation: {
             'fade-up':   'fadeUp 0.7s ease both',
             'fade-in':   'fadeIn 0.6s ease both',
             'line-grow': 'lineGrow 1s ease both',
+            'float':     'float 7s ease-in-out infinite',
           },
           keyframes: {
             fadeUp: {
@@ -65,6 +69,10 @@ DOCTYPE html>
             lineGrow: {
               '0%':   { width: '0%' },
               '100%': { width: '100%' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%':      { transform: 'translateY(-22px)' },
             },
           },
         },
@@ -101,6 +109,81 @@ DOCTYPE html>
       filter: blur(120px);
       pointer-events: none;
       z-index: 0;
+    }
+
+    /* ── Neural-network / circuit layer (technology-forward visual) ── */
+    .neural-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.55;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 45%, #000 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 45%, #000 30%, transparent 80%);
+    }
+    .neural-layer .node {
+      animation: nodePulse 4s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .neural-layer .node-1 { animation-delay: 0.6s; }
+    .neural-layer .node-2 { animation-delay: 1.2s; }
+    .neural-layer .node-3 { animation-delay: 1.8s; }
+    .neural-layer .node-4 { animation-delay: 2.4s; }
+    @keyframes nodePulse {
+      0%, 100% { opacity: 0.25; }
+      50%      { opacity: 0.9; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .neural-layer .node { animation: none; }
+    }
+
+    /* ── Blue/neon cinematic accents ── */
+    .text-gradient-blue {
+      background: linear-gradient(135deg, #ffffff 0%, #60A5FA 55%, #22D3EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glow-blob.glow-blue { background: #3B82F6 !important; }
+    .glow-blob.glow-cyan { background: #22D3EE !important; }
+
+    /* ── Floating particle field (depth + atmosphere) ── */
+    #particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    #particles .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.9) 0%, rgba(34,211,238,0.15) 70%, transparent 100%);
+      box-shadow: 0 0 8px rgba(96,165,250,0.6);
+      animation: float 7s ease-in-out infinite;
+      opacity: 0.5;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #particles .particle { animation: none; }
+    }
+
+    /* ── Cinematic card glow (blue edge on hover) ── */
+    .card.card-glow:hover {
+      border-color: rgba(59,130,246,0.55);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(59,130,246,0.12);
+    }
+    .icon-tile-blue {
+      background: linear-gradient(135deg, rgba(59,130,246,0.18), rgba(34,211,238,0.06));
+      border: 1px solid rgba(59,130,246,0.35);
+    }
+    .icon-tile-blue i { color: #93c5fd; }
+
+    /* ── Initiative card top accent ── */
+    .initiative-accent {
+      background: linear-gradient(90deg, transparent, rgba(96,165,250,0.7), transparent);
     }
 
     /* ── Gradient text ── */
@@ -289,23 +372,24 @@ DOCTYPE html>
     <!-- Logo -->
     <a href="#hero" class="flex items-center gap-3 group">
       <div class="w-8 h-8 rounded-md bg-white flex items-center justify-center">
-        <span class="text-black font-black text-sm tracking-tight">CSV</span>
+        <span class="text-black font-black text-[11px] tracking-tight">CW3</span>
       </div>
-      <span class="font-semibold text-white text-[15px] tracking-wide">CSV Ventures</span>
+      <span class="font-semibold text-white text-[15px] tracking-wide">CW3 Ventures</span>
     </a>
 
     <!-- Desktop nav -->
     <div class="hidden md:flex items-center gap-8">
       <a href="#what-we-do"    class="text-sm text-[#888] hover:text-white transition-colors duration-200">What We Do</a>
-      <a href="#how-it-works"  class="text-sm text-[#888] hover:text-white transition-colors duration-200">How It Works</a>
-      <a href="#founders"      class="text-sm text-[#888] hover:text-white transition-colors duration-200">Founders</a>
+      <a href="#how-it-works"  class="text-sm text-[#888] hover:text-white transition-colors duration-200">How We Work</a>
+      <a href="#initiatives"   class="text-sm text-[#888] hover:text-white transition-colors duration-200">Initiatives</a>
+      <a href="#leadership"    class="text-sm text-[#888] hover:text-white transition-colors duration-200">Leadership</a>
       <a href="#opportunities" class="text-sm text-[#888] hover:text-white transition-colors duration-200">Opportunities</a>
     </div>
 
     <!-- CTA + Hamburger -->
     <div class="flex items-center gap-4">
       <a href="#cta" class="hidden md:inline-flex btn-primary py-[10px] px-5 text-sm">
-        Get Early Access
+        Build With CW3
       </a>
       <button id="menu-toggle" class="md:hidden text-[#888] hover:text-white transition-colors p-1" aria-label="Toggle menu">
         <i class="fas fa-bars text-lg" id="menu-icon"></i>
@@ -317,10 +401,11 @@ DOCTYPE html>
   <div id="mobile-menu" class="hidden md:hidden nav-blur border-t border-[#1a1a1a]">
     <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4">
       <a href="#what-we-do"    class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">What We Do</a>
-      <a href="#how-it-works"  class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">How It Works</a>
-      <a href="#founders"      class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">Founders</a>
+      <a href="#how-it-works"  class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">How We Work</a>
+      <a href="#initiatives"   class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">Initiatives</a>
+      <a href="#leadership"    class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">Leadership</a>
       <a href="#opportunities" class="text-sm text-[#888] hover:text-white transition-colors py-2" onclick="closeMobileMenu()">Opportunities</a>
-      <a href="#cta"           class="btn-primary text-sm mt-2 justify-center" onclick="closeMobileMenu()">Get Early Access</a>
+      <a href="#cta"           class="btn-primary text-sm mt-2 justify-center" onclick="closeMobileMenu()">Build With CW3</a>
     </div>
   </div>
 </nav>
@@ -331,41 +416,72 @@ DOCTYPE html>
 ═══════════════════════════════════════════ -->
 <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-20">
 
-  <!-- Background glow blobs -->
-  <div class="glow-blob w-[600px] h-[600px] bg-white opacity-[0.025] top-[-100px] left-[-200px]"></div>
-  <div class="glow-blob w-[500px] h-[500px] bg-white opacity-[0.02] bottom-[-100px] right-[-150px]"></div>
+  <!-- Cinematic 3D background image -->
+  <div class="absolute inset-0 z-0 parallax" data-depth="0.05">
+    <img src="assets/hero-command-center.webp" alt="" aria-hidden="true" class="w-full h-full object-cover opacity-40" />
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 85% 75% at 50% 42%, rgba(11,11,11,0.45) 0%, rgba(11,11,11,0.82) 65%, #0B0B0B 100%);"></div>
+  </div>
+
+  <!-- Background glow blobs (cinematic blue/cyan) -->
+  <div class="glow-blob glow-blue parallax w-[620px] h-[620px] opacity-[0.10] top-[-120px] left-[-220px]" data-depth="0.18"></div>
+  <div class="glow-blob glow-cyan parallax w-[520px] h-[520px] opacity-[0.07] bottom-[-120px] right-[-160px]" data-depth="0.12"></div>
 
   <!-- Grid overlay -->
-  <div class="absolute inset-0 z-0" style="background-image: linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px); background-size: 60px 60px; opacity: 0.2;"></div>
+  <div class="absolute inset-0 z-0" style="background-image: linear-gradient(#15233a 1px, transparent 1px), linear-gradient(90deg, #15233a 1px, transparent 1px); background-size: 60px 60px; opacity: 0.25;"></div>
+
+  <!-- Floating particle field -->
+  <div id="particles" aria-hidden="true"></div>
+
+  <!-- Neural-network / circuit layer (AI · data · robotics) -->
+  <svg class="neural-layer parallax" data-depth="0.08" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g stroke="#60A5FA" stroke-width="0.7" fill="none" opacity="0.18">
+      <path d="M120 180 L360 120 L600 260 L840 160 L1080 300 L1320 200" />
+      <path d="M120 520 L360 600 L600 440 L840 560 L1080 420 L1320 540" />
+      <path d="M360 120 L360 600 M600 260 L600 440 M840 160 L840 560 M1080 300 L1080 420" />
+      <path d="M120 180 L120 520 M1320 200 L1320 540" />
+      <path d="M360 120 L600 440 M840 160 L1080 420 M600 260 L840 560" />
+    </g>
+    <g fill="#93c5fd">
+      <circle class="node" cx="120" cy="180" r="3" />
+      <circle class="node node-2" cx="360" cy="120" r="3.5" />
+      <circle class="node node-3" cx="600" cy="260" r="3" />
+      <circle class="node node-1" cx="840" cy="160" r="3.5" />
+      <circle class="node node-4" cx="1080" cy="300" r="3" />
+      <circle class="node node-2" cx="1320" cy="200" r="3" />
+      <circle class="node node-3" cx="360" cy="600" r="3" />
+      <circle class="node node-1" cx="600" cy="440" r="3.5" />
+      <circle class="node node-4" cx="840" cy="560" r="3" />
+      <circle class="node node-2" cx="1080" cy="420" r="3.5" />
+    </g>
+  </svg>
 
   <div class="relative z-10 max-w-5xl mx-auto text-center">
 
     <!-- Badge -->
-    <div class="pill mb-8 mx-auto reveal" style="width:fit-content">
-      <span class="dot" style="background:#888;"></span>
-      Private Venture Lab
+    <div class="pill mb-8 mx-auto reveal" style="width:fit-content; border-color: rgba(59,130,246,0.4);">
+      <span class="dot" style="background:#60A5FA;"></span>
+      Building Intelligent Companies
     </div>
 
     <!-- Headline -->
     <h1 class="reveal reveal-delay-1 text-[clamp(2.4rem,6vw,4.5rem)] font-black leading-[1.08] tracking-[-0.03em] mb-6">
-      <span class="text-gradient">We Build Platforms.</span><br />
-      <span class="text-gradient">We Test Them Fast.</span><br />
-      <span class="text-gradient">We Scale What Works.</span>
+      <span class="text-gradient">Building the Next Generation</span><br />
+      <span class="text-gradient-blue">of Intelligent Companies.</span>
     </h1>
 
     <!-- Subtext -->
-    <p class="reveal reveal-delay-2 text-[#888] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-      CSV Ventures is a private venture lab creating and validating new platforms through real users and early capital alignment.
+    <p class="reveal reveal-delay-2 text-[#9aa3b2] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+      Artificial Intelligence. Robotics. Operational Intelligence. Data Systems. Emerging Technology.
     </p>
 
     <!-- Buttons -->
     <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#opportunities" class="btn-primary">
-        <i class="fas fa-handshake"></i>
-        Partner With Us
+      <a href="#cta" class="btn-primary">
+        <i class="fas fa-bolt"></i>
+        Build With CW3
       </a>
-      <a href="#cta" class="btn-secondary">
-        Get Early Access
+      <a href="#opportunities" class="btn-secondary">
+        Explore Opportunities
         <i class="fas fa-arrow-right text-sm"></i>
       </a>
     </div>
@@ -373,16 +489,16 @@ DOCTYPE html>
     <!-- Stats row -->
     <div class="reveal reveal-delay-4 mt-20 grid grid-cols-3 gap-6 max-w-xl mx-auto border border-[#1f1f1f] rounded-xl p-6 bg-[#0f0f0f]">
       <div class="text-center">
-        <div class="text-2xl font-bold text-white">Fast</div>
-        <div class="text-xs text-[#555] mt-1 uppercase tracking-widest">MVP Cycles</div>
+        <div class="text-2xl font-bold text-white">AI-Native</div>
+        <div class="text-xs text-[#555] mt-1 uppercase tracking-widest">By Design</div>
       </div>
       <div class="border-x border-[#1f1f1f] text-center">
-        <div class="text-2xl font-bold text-white">Real</div>
-        <div class="text-xs text-[#555] mt-1 uppercase tracking-widest">User Validation</div>
+        <div class="text-2xl font-bold text-white">Multi-Sector</div>
+        <div class="text-xs text-[#555] mt-1 uppercase tracking-widest">Technology Focus</div>
       </div>
       <div class="text-center">
-        <div class="text-2xl font-bold text-white">Early</div>
-        <div class="text-xs text-[#555] mt-1 uppercase tracking-widest">Capital Alignment</div>
+        <div class="text-2xl font-bold text-white">Built to Scale</div>
+        <div class="text-xs text-[#555] mt-1 uppercase tracking-widest">From Day One</div>
       </div>
     </div>
 
@@ -419,10 +535,10 @@ DOCTYPE html>
       <!-- Left: text -->
       <div>
         <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black leading-tight tracking-tight mb-6 text-gradient">
-          A lab built for speed,<br/>precision & results.
+          Companies built on intelligence, speed & systems.
         </h2>
         <p class="reveal reveal-delay-2 text-[#888] leading-relaxed text-base md:text-lg">
-          CSV Ventures operates as a closed-loop venture studio. We identify high-potential concepts, strip them to their core, and launch validated MVPs with real users — connecting platform traction to investor readiness from day one. We don't move slow. Every platform we build goes through a disciplined loop of creation, testing, and data-backed scaling.
+          CW3 Ventures is a founder-led venture creation company. We originate ideas, build them into real products and platforms, validate them against real-world signals, and scale what works — across artificial intelligence, operational intelligence, software, robotics, and data systems. Every company we create is engineered to be intelligent, fast, and built to scale from day one.
         </p>
       </div>
 
@@ -431,34 +547,34 @@ DOCTYPE html>
 
         <!-- Bullet 1 -->
         <div class="card reveal reveal-delay-1 p-6 flex gap-5 items-start">
-          <div class="flex-shrink-0 w-10 h-10 rounded-md bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center">
-            <i class="fas fa-bolt text-white text-sm"></i>
+          <div class="icon-tile-blue flex-shrink-0 w-10 h-10 rounded-md flex items-center justify-center">
+            <i class="fas fa-microchip text-white text-sm"></i>
           </div>
           <div>
-            <h3 class="font-semibold text-white mb-1 text-[15px]">MVP Builds</h3>
-            <p class="text-[#666] text-sm leading-relaxed">Rapid design-to-deploy cycles. We build lean, functional platforms fast — cutting noise, keeping signal.</p>
+            <h3 class="font-semibold text-white mb-1 text-[15px]">Intelligent Products</h3>
+            <p class="text-[#666] text-sm leading-relaxed">AI-native products and software platforms built to learn, adapt, and create durable advantage.</p>
           </div>
         </div>
 
         <!-- Bullet 2 -->
         <div class="card reveal reveal-delay-2 p-6 flex gap-5 items-start">
-          <div class="flex-shrink-0 w-10 h-10 rounded-md bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center">
-            <i class="fas fa-users text-white text-sm"></i>
+          <div class="icon-tile-blue flex-shrink-0 w-10 h-10 rounded-md flex items-center justify-center">
+            <i class="fas fa-robot text-white text-sm"></i>
           </div>
           <div>
-            <h3 class="font-semibold text-white mb-1 text-[15px]">User Validation</h3>
-            <p class="text-[#666] text-sm leading-relaxed">Real users. Real feedback. We test with curated early cohorts to surface product-market fit signals before scaling.</p>
+            <h3 class="font-semibold text-white mb-1 text-[15px]">Operational Systems</h3>
+            <p class="text-[#666] text-sm leading-relaxed">Operational intelligence, automation, and robotics that turn complex processes into scalable systems.</p>
           </div>
         </div>
 
         <!-- Bullet 3 -->
         <div class="card reveal reveal-delay-3 p-6 flex gap-5 items-start">
-          <div class="flex-shrink-0 w-10 h-10 rounded-md bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center">
-            <i class="fas fa-chart-line text-white text-sm"></i>
+          <div class="icon-tile-blue flex-shrink-0 w-10 h-10 rounded-md flex items-center justify-center">
+            <i class="fas fa-database text-white text-sm"></i>
           </div>
           <div>
-            <h3 class="font-semibold text-white mb-1 text-[15px]">Investor Alignment</h3>
-            <p class="text-[#666] text-sm leading-relaxed">We align early capital with platform milestones — not promises. Investors see traction before they commit.</p>
+            <h3 class="font-semibold text-white mb-1 text-[15px]">Data & Scale</h3>
+            <p class="text-[#666] text-sm leading-relaxed">Data systems and future-ready infrastructure that let validated companies expand with confidence.</p>
           </div>
         </div>
 
@@ -484,30 +600,30 @@ DOCTYPE html>
     <div class="text-center mb-20">
       <div class="pill mb-6 reveal mx-auto" style="width:fit-content">
         <span class="dot"></span>
-        How It Works
+        How We Work
       </div>
       <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
-        Five steps. One mission.
+        Four steps. One mission.
       </h2>
       <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-lg mx-auto text-base">
-        Every venture we build moves through the same disciplined process — from raw concept to scaled platform.
+        Every company we create moves through the same disciplined process — from market opportunity to scaled business.
       </p>
     </div>
 
     <!-- Desktop: horizontal steps -->
-    <div class="hidden md:grid grid-cols-5 gap-4 relative">
+    <div class="hidden md:grid grid-cols-4 gap-4 relative">
 
       <!-- Connector line -->
-      <div class="absolute top-7 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-[#2a2a2a] to-transparent z-0"></div>
+      <div class="absolute top-7 left-[12%] right-[12%] h-px bg-gradient-to-r from-transparent via-[#2a2a2a] to-transparent z-0"></div>
 
       <!-- Step 1 -->
       <div class="reveal reveal-delay-1 flex flex-col items-center text-center group">
         <div class="step-badge group-hover:border-[#555] group-hover:bg-[#1a1a1a] mb-5 z-10 relative">
-          <i class="fas fa-lightbulb text-base"></i>
+          <i class="fas fa-crosshairs text-base"></i>
         </div>
         <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 01</span>
-        <h3 class="font-bold text-white text-[15px] mb-2">Idea</h3>
-        <p class="text-[#555] text-xs leading-relaxed">We source high-signal concepts with real market pull.</p>
+        <h3 class="font-bold text-white text-[15px] mb-2">Identify</h3>
+        <p class="text-[#555] text-xs leading-relaxed">Identify meaningful market opportunities.</p>
       </div>
 
       <!-- Step 2 -->
@@ -517,37 +633,27 @@ DOCTYPE html>
         </div>
         <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 02</span>
         <h3 class="font-bold text-white text-[15px] mb-2">Build</h3>
-        <p class="text-[#555] text-xs leading-relaxed">Rapid MVP development — functional, lean, and fast.</p>
+        <p class="text-[#555] text-xs leading-relaxed">Rapidly create products, systems, and platforms.</p>
       </div>
 
       <!-- Step 3 -->
       <div class="reveal reveal-delay-3 flex flex-col items-center text-center group">
         <div class="step-badge group-hover:border-[#555] group-hover:bg-[#1a1a1a] mb-5 z-10 relative">
-          <i class="fas fa-flask text-base"></i>
+          <i class="fas fa-check-circle text-base"></i>
         </div>
         <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 03</span>
-        <h3 class="font-bold text-white text-[15px] mb-2">Test</h3>
-        <p class="text-[#555] text-xs leading-relaxed">Live testing with early cohorts in real environments.</p>
+        <h3 class="font-bold text-white text-[15px] mb-2">Validate</h3>
+        <p class="text-[#555] text-xs leading-relaxed">Test with real users and real-world signals.</p>
       </div>
 
       <!-- Step 4 -->
       <div class="reveal reveal-delay-4 flex flex-col items-center text-center group">
         <div class="step-badge group-hover:border-[#555] group-hover:bg-[#1a1a1a] mb-5 z-10 relative">
-          <i class="fas fa-check-circle text-base"></i>
-        </div>
-        <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 04</span>
-        <h3 class="font-bold text-white text-[15px] mb-2">Validate</h3>
-        <p class="text-[#555] text-xs leading-relaxed">Data confirms product-market fit before scaling.</p>
-      </div>
-
-      <!-- Step 5 -->
-      <div class="reveal reveal-delay-5 flex flex-col items-center text-center group">
-        <div class="step-badge group-hover:border-[#555] group-hover:bg-[#1a1a1a] mb-5 z-10 relative">
           <i class="fas fa-rocket text-base"></i>
         </div>
-        <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 05</span>
+        <span class="text-[11px] uppercase tracking-[0.15em] text-[#555] mb-2">Step 04</span>
         <h3 class="font-bold text-white text-[15px] mb-2">Scale</h3>
-        <p class="text-[#555] text-xs leading-relaxed">Capital deploys. Platform grows. We scale what works.</p>
+        <p class="text-[#555] text-xs leading-relaxed">Expand successful businesses and technologies.</p>
       </div>
 
     </div>
@@ -557,13 +663,13 @@ DOCTYPE html>
       <!-- Step items -->
       <div class="reveal flex gap-5 pb-10 relative">
         <div class="flex flex-col items-center">
-          <div class="step-badge flex-shrink-0"><i class="fas fa-lightbulb text-base"></i></div>
+          <div class="step-badge flex-shrink-0"><i class="fas fa-crosshairs text-base"></i></div>
           <div class="w-px flex-1 bg-[#1f1f1f] mt-3"></div>
         </div>
         <div class="pt-3">
           <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 01</span>
-          <h3 class="font-bold text-white mt-1 mb-2">Idea</h3>
-          <p class="text-[#666] text-sm leading-relaxed">We source high-signal concepts with real market pull.</p>
+          <h3 class="font-bold text-white mt-1 mb-2">Identify</h3>
+          <p class="text-[#666] text-sm leading-relaxed">Identify meaningful market opportunities.</p>
         </div>
       </div>
       <div class="reveal reveal-delay-1 flex gap-5 pb-10 relative">
@@ -574,39 +680,28 @@ DOCTYPE html>
         <div class="pt-3">
           <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 02</span>
           <h3 class="font-bold text-white mt-1 mb-2">Build</h3>
-          <p class="text-[#666] text-sm leading-relaxed">Rapid MVP development — functional, lean, and fast.</p>
+          <p class="text-[#666] text-sm leading-relaxed">Rapidly create products, systems, and platforms.</p>
         </div>
       </div>
       <div class="reveal reveal-delay-2 flex gap-5 pb-10 relative">
-        <div class="flex flex-col items-center">
-          <div class="step-badge flex-shrink-0"><i class="fas fa-flask text-base"></i></div>
-          <div class="w-px flex-1 bg-[#1f1f1f] mt-3"></div>
-        </div>
-        <div class="pt-3">
-          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 03</span>
-          <h3 class="font-bold text-white mt-1 mb-2">Test</h3>
-          <p class="text-[#666] text-sm leading-relaxed">Live testing with early cohorts in real environments.</p>
-        </div>
-      </div>
-      <div class="reveal reveal-delay-3 flex gap-5 pb-10 relative">
         <div class="flex flex-col items-center">
           <div class="step-badge flex-shrink-0"><i class="fas fa-check-circle text-base"></i></div>
           <div class="w-px flex-1 bg-[#1f1f1f] mt-3"></div>
         </div>
         <div class="pt-3">
-          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 04</span>
+          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 03</span>
           <h3 class="font-bold text-white mt-1 mb-2">Validate</h3>
-          <p class="text-[#666] text-sm leading-relaxed">Data confirms product-market fit before scaling.</p>
+          <p class="text-[#666] text-sm leading-relaxed">Test with real users and real-world signals.</p>
         </div>
       </div>
-      <div class="reveal reveal-delay-4 flex gap-5">
+      <div class="reveal reveal-delay-3 flex gap-5">
         <div class="flex flex-col items-center">
           <div class="step-badge flex-shrink-0"><i class="fas fa-rocket text-base"></i></div>
         </div>
         <div class="pt-3">
-          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 05</span>
+          <span class="text-[10px] uppercase tracking-widest text-[#555]">Step 04</span>
           <h3 class="font-bold text-white mt-1 mb-2">Scale</h3>
-          <p class="text-[#666] text-sm leading-relaxed">Capital deploys. Platform grows. We scale what works.</p>
+          <p class="text-[#666] text-sm leading-relaxed">Expand successful businesses and technologies.</p>
         </div>
       </div>
     </div>
@@ -645,7 +740,7 @@ DOCTYPE html>
       <div class="card reveal reveal-delay-1 p-8">
         <div class="text-[#333] text-5xl font-black mb-4 leading-none">01</div>
         <h3 class="text-white font-bold text-xl mb-3 tracking-tight">We Operate Like Founders, Not Funds.</h3>
-        <p class="text-[#666] text-sm leading-relaxed">CSV Ventures doesn't just write checks. We're in the trenches — building, testing, iterating. Every platform gets founder-level attention and energy.</p>
+        <p class="text-[#666] text-sm leading-relaxed">CW3 Ventures doesn't just write checks. We're in the trenches — building, testing, iterating. Every company gets founder-level attention and energy.</p>
       </div>
 
       <!-- Statement 2 -->
@@ -666,7 +761,7 @@ DOCTYPE html>
       <div class="card reveal reveal-delay-4 p-8">
         <div class="text-[#333] text-5xl font-black mb-4 leading-none">04</div>
         <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Private. Intentional. Selective.</h3>
-        <p class="text-[#666] text-sm leading-relaxed">CSV Ventures is not a public accelerator. We work with a tight circle of operators, builders, and investors who believe in doing great work without the noise.</p>
+        <p class="text-[#666] text-sm leading-relaxed">CW3 Ventures is not a public accelerator. We work with a tight circle of operators, builders, and investors who believe in doing great work without the noise.</p>
       </div>
 
     </div>
@@ -680,154 +775,195 @@ DOCTYPE html>
 <!-- ══════════════════════════════════════════
      SECTION 5 — FOUNDERS
 ═══════════════════════════════════════════ -->
-<section id="founders" class="relative py-28 px-6 overflow-hidden">
+<section id="leadership" class="relative py-28 px-6 overflow-hidden">
 
   <div class="glow-blob w-[400px] h-[400px] bg-white opacity-[0.015] top-0 right-0"></div>
 
   <div class="max-w-6xl mx-auto">
 
     <!-- Header -->
-    <div class="text-center mb-20">
+    <div class="text-center mb-16">
       <div class="pill mb-6 reveal mx-auto" style="width:fit-content">
         <span class="dot"></span>
-        The Founders
+        Leadership
       </div>
       <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
-        Built by builders.
+        Founder-led. Built to last.
       </h2>
       <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-md mx-auto text-base">
-        CSV Ventures was founded by operators who've been in the room — building products, managing capital, and scaling platforms.
+        CW3 Ventures is led by a founder and operator focused on building intelligent companies that solve meaningful problems.
       </p>
     </div>
 
-    <!-- Founders grid -->
-    <div class="grid md:grid-cols-3 gap-8">
+    <!-- Leadership card -->
+    <div class="max-w-xl mx-auto">
 
-      <!-- Cory -->
-      <div class="founder-card card reveal reveal-delay-1 p-8 flex flex-col items-center text-center">
-        <div class="avatar-ring w-20 h-20 rounded-full bg-[#1a1a1a] mb-6 overflow-hidden">
-          <img src="assets/cory.jpg" alt="Cory — Founder & CEO, CSV Ventures" class="w-full h-full object-cover object-top" />
+      <!-- Cory Wooten -->
+      <div class="founder-card card reveal reveal-delay-1 p-10 flex flex-col items-center text-center">
+        <div class="avatar-ring w-24 h-24 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 overflow-hidden">
+          <span class="text-3xl font-black text-white tracking-tight">CW</span>
         </div>
         <div class="pill mb-3">
           <span class="dot" style="background: #fff;"></span>
           Founder & CEO
         </div>
-        <h3 class="text-white font-bold text-xl mt-2 mb-1">Cory</h3>
-        <p class="text-[#444] text-xs uppercase tracking-widest mb-4">Founder & CEO, CSV Ventures</p>
+        <h3 class="text-white font-bold text-2xl mt-2 mb-1">Cory Wooten</h3>
+        <p class="text-[#444] text-xs uppercase tracking-widest mb-5">Founder &amp; CEO, CW3 Ventures</p>
 
         <!-- Short bio -->
-        <p class="text-[#555] text-sm leading-relaxed mb-4">
-          Builder, operator, and strategic leader focused on creating systems that drive impact, scale, and long-term value — spanning entrepreneurship, real estate, sports, wellness, and capital development.
+        <p class="text-[#888] text-sm md:text-base leading-relaxed mb-4 max-w-lg">
+          Founder, operator, and builder focused on creating intelligent companies, scalable technology platforms, and operational systems that solve meaningful problems.
         </p>
 
         <!-- Expandable full bio -->
-        <div id="cory-bio-full" class="hidden text-left space-y-3 mb-4">
+        <div id="cory-bio-full" class="hidden text-left space-y-3 mb-4 max-w-lg">
           <p class="text-[#555] text-sm leading-relaxed">
-            As Founder & CEO of CSV Ventures, Cory leads the firm's venture creation engine — originating ideas, driving product development, and setting strategic direction across all platforms. His role is centered on identifying high-potential opportunities, building them into tangible products, and guiding them through a disciplined lifecycle of validation, scale, or strategic integration.
+            Cory works across the full lifecycle of venture creation — originating ideas, building them into real products and platforms, validating them against real-world signals, and scaling what works. His focus spans artificial intelligence, operational intelligence, software, robotics, and data systems.
           </p>
           <p class="text-[#555] text-sm leading-relaxed">
-            Cory's experience includes launching and scaling businesses, working across the capital stack, and operating within both private and institutional environments. He has been involved in raising significant capital and structuring opportunities that align investors, operators, and communities. His approach is rooted in building systems — not just companies — that create repeatable success.
-          </p>
-          <p class="text-[#555] text-sm leading-relaxed">
-            Known for his forward-thinking mindset and ability to execute under pressure, Cory operates with a clear philosophy: take care of people, create meaningful impact, and build ventures that generate sustainable value. At CSV Ventures, he applies that philosophy through a structured, evidence-driven approach — transforming ideas into assets and opportunities into scalable platforms.
+            His approach is rooted in building systems, not just companies — disciplined, evidence-driven, and engineered to create durable, long-term value. At CW3 Ventures, he leads the company's venture creation engine and sets strategic direction across every platform.
           </p>
         </div>
 
         <!-- Read more toggle -->
         <button
           onclick="toggleBio('cory-bio-full', this)"
-          class="text-[#555] hover:text-[#888] text-xs transition-colors flex items-center gap-1 mx-auto mb-5"
+          class="text-[#555] hover:text-[#888] text-xs transition-colors flex items-center gap-1 mx-auto mb-6"
         >
           <span>Read more</span>
           <i class="fas fa-chevron-down text-[10px] transition-transform duration-300"></i>
         </button>
 
         <!-- Specialty tags -->
-        <div class="flex flex-wrap gap-2 justify-center mb-6">
+        <div class="flex flex-wrap gap-2 justify-center">
           <span class="pill text-[10px] py-1 px-3">Venture Creation</span>
-          <span class="pill text-[10px] py-1 px-3">Capital Development</span>
-          <span class="pill text-[10px] py-1 px-3">Strategic Leadership</span>
-        </div>
-
-        <div class="flex gap-3">
-          <div class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center hover:border-[#555] transition-colors cursor-pointer">
-            <i class="fab fa-linkedin-in text-[#666] text-xs"></i>
-          </div>
-          <div class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center hover:border-[#555] transition-colors cursor-pointer">
-            <i class="fab fa-x-twitter text-[#666] text-xs"></i>
-          </div>
+          <span class="pill text-[10px] py-1 px-3">AI &amp; Platforms</span>
+          <span class="pill text-[10px] py-1 px-3">Operational Systems</span>
         </div>
       </div>
 
-      <!-- Seth -->
-      <div class="founder-card card reveal reveal-delay-2 p-8 flex flex-col items-center text-center">
-        <div class="avatar-ring w-20 h-20 rounded-full bg-[#1a1a1a] mb-6 overflow-hidden">
-          <img src="assets/seth.jpg" alt="Seth — Co-Founder, CSV Ventures" class="w-full h-full object-cover object-top" />
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider max-w-5xl"></div>
+
+
+<!-- ══════════════════════════════════════════
+     SECTION — ACTIVE INITIATIVES
+═══════════════════════════════════════════ -->
+<section id="initiatives" class="relative py-28 px-6 overflow-hidden">
+
+  <div class="glow-blob glow-blue w-[480px] h-[480px] opacity-[0.05] top-[10%] left-1/2 -translate-x-1/2"></div>
+
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <div class="pill mb-6 reveal mx-auto" style="width:fit-content; border-color: rgba(59,130,246,0.4);">
+        <span class="dot" style="background:#60A5FA;"></span>
+        Active Initiatives
+      </div>
+      <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
+        What we're building.
+      </h2>
+      <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-xl mx-auto text-base">
+        A portfolio of intelligent platforms and systems in active development across AI, operational intelligence, and robotics.
+      </p>
+    </div>
+
+    <!-- Initiative cards -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- CONNECT -->
+      <div class="card card-glow reveal reveal-delay-1 relative overflow-hidden">
+        <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
+        <div class="relative h-40 overflow-hidden">
+          <img src="assets/connect.webp" alt="CONNECT — intelligent connectivity layer" loading="lazy" class="w-full h-full object-cover" />
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
         </div>
-        <div class="pill mb-3">
-          <span class="dot"></span>
-          Co-Founder
-        </div>
-        <h3 class="text-white font-bold text-xl mt-2 mb-1">Seth</h3>
-        <p class="text-[#444] text-xs uppercase tracking-widest mb-4">Co-Founder, CSV Ventures</p>
-
-        <!-- Short bio -->
-        <p class="text-[#555] text-sm leading-relaxed mb-4">
-          Results-driven operator specializing in user acquisition, market validation, and early-stage growth strategy — with a background spanning technology, B2B environments, and outreach marketing.
-        </p>
-
-        <!-- Expandable full bio -->
-        <div id="seth-bio-full" class="hidden text-left space-y-3 mb-4">
-          <p class="text-[#555] text-sm leading-relaxed">
-            At CSV Ventures, Seth leads the front line of validation — designing and executing targeted outreach campaigns, building early user pipelines, and generating the market signal required to determine whether a platform is worth scaling.
-          </p>
-          <p class="text-[#555] text-sm leading-relaxed">
-            His ability to connect directly with users, uncover real needs, and convert conversations into traction allows CSV Ventures to move quickly from idea to evidence.
-          </p>
-          <p class="text-[#555] text-sm leading-relaxed">
-            Known for a relationship-first approach, Seth combines persistence, strategic communication, and market insight to build trust and drive engagement — ensuring every platform is grounded in real demand, not assumptions.
-          </p>
-        </div>
-
-        <!-- Read more toggle -->
-        <button
-          onclick="toggleBio('seth-bio-full', this)"
-          class="text-[#555] hover:text-[#888] text-xs transition-colors flex items-center gap-1 mx-auto mb-5"
-        >
-          <span>Read more</span>
-          <i class="fas fa-chevron-down text-[10px] transition-transform duration-300"></i>
-        </button>
-
-        <!-- Specialty tags -->
-        <div class="flex flex-wrap gap-2 justify-center mb-6">
-          <span class="pill text-[10px] py-1 px-3">User Acquisition</span>
-          <span class="pill text-[10px] py-1 px-3">Market Validation</span>
-          <span class="pill text-[10px] py-1 px-3">Growth Strategy</span>
-        </div>
-
-        <div class="flex gap-3">
-          <div class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center hover:border-[#555] transition-colors cursor-pointer">
-            <i class="fab fa-linkedin-in text-[#666] text-xs"></i>
+        <div class="p-8 pt-0 -mt-8 relative">
+          <div class="icon-tile-blue w-12 h-12 rounded-lg flex items-center justify-center mb-5">
+            <i class="fas fa-share-nodes text-lg"></i>
           </div>
-          <div class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center hover:border-[#555] transition-colors cursor-pointer">
-            <i class="fab fa-x-twitter text-[#666] text-xs"></i>
-          </div>
+          <h3 class="text-white font-bold text-xl mb-2 tracking-tight">CONNECT</h3>
+          <p class="text-[#777] text-sm leading-relaxed">An intelligent connectivity layer that links people, systems, and data into a single operational fabric.</p>
         </div>
       </div>
 
-      <!-- Vince -->
-      <div class="founder-card card reveal reveal-delay-3 p-8 flex flex-col items-center text-center">
-        <div class="avatar-ring w-20 h-20 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 overflow-hidden">
-          <span class="text-2xl font-black text-white">V</span>
+      <!-- COMMAND -->
+      <div class="card card-glow reveal reveal-delay-2 relative overflow-hidden">
+        <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
+        <div class="relative h-40 overflow-hidden">
+          <img src="assets/command.webp" alt="COMMAND — operational intelligence platform" loading="lazy" class="w-full h-full object-cover" />
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
         </div>
-        <div class="pill mb-3">
-          <span class="dot"></span>
-          Co-Founder
+        <div class="p-8 pt-0 -mt-8 relative">
+          <div class="icon-tile-blue w-12 h-12 rounded-lg flex items-center justify-center mb-5">
+            <i class="fas fa-gauge-high text-lg"></i>
+          </div>
+          <h3 class="text-white font-bold text-xl mb-2 tracking-tight">COMMAND</h3>
+          <p class="text-[#777] text-sm leading-relaxed">A command-and-control platform delivering real-time operational intelligence and decision support.</p>
         </div>
-        <h3 class="text-white font-bold text-xl mt-2 mb-3">Vince</h3>
-        <p class="text-[#444] text-xs italic leading-relaxed">
-          Bio coming soon.
-        </p>
+      </div>
+
+      <!-- CW3 Agents -->
+      <div class="card card-glow reveal reveal-delay-3 relative overflow-hidden">
+        <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
+        <div class="relative h-40 overflow-hidden">
+          <img src="assets/agents.webp" alt="CW3 Agents — autonomous AI agents" loading="lazy" class="w-full h-full object-cover" />
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
+        </div>
+        <div class="p-8 pt-0 -mt-8 relative">
+          <div class="icon-tile-blue w-12 h-12 rounded-lg flex items-center justify-center mb-5">
+            <i class="fas fa-robot text-lg"></i>
+          </div>
+          <h3 class="text-white font-bold text-xl mb-2 tracking-tight">CW3 Agents</h3>
+          <p class="text-[#777] text-sm leading-relaxed">Autonomous AI agents that automate workflows, reason over data, and act on behalf of operators.</p>
+        </div>
+      </div>
+
+      <!-- CW3 Signal -->
+      <div class="card card-glow reveal reveal-delay-4 relative overflow-hidden">
+        <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
+        <div class="relative h-40 overflow-hidden">
+          <img src="assets/signal.webp" alt="CW3 Signal — signal intelligence" loading="lazy" class="w-full h-full object-cover" />
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
+        </div>
+        <div class="p-8 pt-0 -mt-8 relative">
+          <div class="icon-tile-blue w-12 h-12 rounded-lg flex items-center justify-center mb-5">
+            <i class="fas fa-wave-square text-lg"></i>
+          </div>
+          <h3 class="text-white font-bold text-xl mb-2 tracking-tight">CW3 Signal</h3>
+          <p class="text-[#777] text-sm leading-relaxed">Signal intelligence that surfaces meaningful patterns from noise across markets and systems.</p>
+        </div>
+      </div>
+
+      <!-- Future Robotics Initiative -->
+      <div class="card card-glow reveal reveal-delay-5 relative overflow-hidden">
+        <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
+        <div class="relative h-40 overflow-hidden">
+          <img src="assets/robotics.webp" alt="Future Robotics Initiative — applied robotics" loading="lazy" class="w-full h-full object-cover" />
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
+        </div>
+        <div class="p-8 pt-0 -mt-8 relative">
+          <div class="icon-tile-blue w-12 h-12 rounded-lg flex items-center justify-center mb-5">
+            <i class="fas fa-microchip text-lg"></i>
+          </div>
+          <h3 class="text-white font-bold text-xl mb-2 tracking-tight">Future Robotics Initiative</h3>
+          <p class="text-[#777] text-sm leading-relaxed">Applied robotics and embodied intelligence engineered for the next generation of physical infrastructure.</p>
+        </div>
+      </div>
+
+      <!-- Closing tile -->
+      <div class="card reveal reveal-delay-5 p-8 relative overflow-hidden flex flex-col justify-center items-start" style="background: linear-gradient(135deg, rgba(59,130,246,0.10), rgba(34,211,238,0.03));">
+        <h3 class="text-white font-bold text-xl mb-2 tracking-tight">More in development.</h3>
+        <p class="text-[#888] text-sm leading-relaxed mb-6">New intelligent companies are continuously originated, built, and validated inside CW3 Ventures.</p>
+        <a href="#cta" class="text-brandlight text-sm font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all" style="color:#60A5FA;">
+          Explore Opportunities
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
       </div>
 
     </div>
@@ -854,10 +990,10 @@ DOCTYPE html>
         Opportunities
       </div>
       <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
-        Join the lab.
+        Build with CW3.
       </h2>
       <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-xl mx-auto text-base">
-        Whether you're a user who wants in early or an investor looking for validated deal flow — there's a seat at the table.
+        Whether you're an early user who wants in first or an investor looking for validated, technology-driven companies — there's a seat at the table.
       </p>
     </div>
 
@@ -897,7 +1033,7 @@ DOCTYPE html>
         </ul>
 
         <a href="#cta" class="btn-secondary w-full justify-center">
-          Request Early Access
+          Explore Opportunities
           <i class="fas fa-arrow-right text-sm"></i>
         </a>
 
@@ -937,7 +1073,7 @@ DOCTYPE html>
 
         <a href="#cta" class="btn-primary w-full justify-center">
           <i class="fas fa-handshake"></i>
-          Partner With Us
+          Partner With CW3
         </a>
 
       </div>
@@ -980,12 +1116,12 @@ DOCTYPE html>
 
     <!-- Buttons -->
     <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center mb-16">
-      <a href="mailto:hello@csvventures.com" class="btn-primary text-base px-8 py-4" rel="noopener">
+      <a href="mailto:hello@cw3ventures.com" class="btn-primary text-base px-8 py-4" rel="noopener">
         <i class="fas fa-handshake"></i>
-        Partner With Us
+        Partner With CW3
       </a>
-      <a href="mailto:access@csvventures.com" class="btn-secondary text-base px-8 py-4" rel="noopener">
-        Get Early Access
+      <a href="mailto:access@cw3ventures.com" class="btn-secondary text-base px-8 py-4" rel="noopener">
+        Build With CW3
         <i class="fas fa-arrow-right text-sm"></i>
       </a>
     </div>
@@ -1002,9 +1138,9 @@ DOCTYPE html>
         (469) 985-2024
       </span>
       <span class="hidden sm:block w-px h-4 bg-[#1f1f1f]"></span>
-      <a href="mailto:hello@csvventures.com" class="flex items-center gap-2 text-[#444] hover:text-[#888] transition-colors text-xs group">
+      <a href="mailto:hello@cw3ventures.com" class="flex items-center gap-2 text-[#444] hover:text-[#888] transition-colors text-xs group">
         <i class="fas fa-envelope text-[#333] group-hover:text-[#666] transition-colors"></i>
-        hello@csvventures.com
+        hello@cw3ventures.com
       </a>
       <span class="hidden sm:block w-px h-4 bg-[#1f1f1f]"></span>
       <span class="flex items-center gap-2 text-[#444] text-xs">
@@ -1036,12 +1172,12 @@ DOCTYPE html>
       <div>
         <div class="flex items-center gap-3 mb-4">
           <div class="w-7 h-7 rounded bg-white flex items-center justify-center flex-shrink-0">
-            <span class="text-black font-black text-xs">CSV</span>
+            <span class="text-black font-black text-[10px]">CW3</span>
           </div>
-          <span class="text-white text-sm font-semibold tracking-wide">CSV Ventures</span>
+          <span class="text-white text-sm font-semibold tracking-wide">CW3 Ventures</span>
         </div>
         <p class="text-[#444] text-xs leading-relaxed max-w-[220px]">
-          A private venture lab building, testing, and scaling the next generation of digital platforms.
+          A founder-led venture creation company building, validating, and scaling intelligent, technology-driven companies.
         </p>
       </div>
 
@@ -1050,8 +1186,9 @@ DOCTYPE html>
         <p class="text-[#333] text-[10px] uppercase tracking-[0.15em] mb-4 font-semibold">Navigate</p>
         <ul class="space-y-3">
           <li><a href="#what-we-do"    class="text-[#444] hover:text-[#888] text-xs transition-colors">What We Do</a></li>
-          <li><a href="#how-it-works"  class="text-[#444] hover:text-[#888] text-xs transition-colors">How It Works</a></li>
-          <li><a href="#founders"      class="text-[#444] hover:text-[#888] text-xs transition-colors">Founders</a></li>
+          <li><a href="#how-it-works"  class="text-[#444] hover:text-[#888] text-xs transition-colors">How We Work</a></li>
+          <li><a href="#initiatives"   class="text-[#444] hover:text-[#888] text-xs transition-colors">Initiatives</a></li>
+          <li><a href="#leadership"    class="text-[#444] hover:text-[#888] text-xs transition-colors">Leadership</a></li>
           <li><a href="#opportunities" class="text-[#444] hover:text-[#888] text-xs transition-colors">Opportunities</a></li>
           <li><a href="#cta"           class="text-[#444] hover:text-[#888] text-xs transition-colors">Contact</a></li>
         </ul>
@@ -1090,16 +1227,16 @@ DOCTYPE html>
           <!-- Email -->
           <li class="flex items-center gap-3">
             <i class="fas fa-envelope text-[#444] text-xs flex-shrink-0 w-3 text-center"></i>
-            <a href="mailto:hello@csvventures.com" class="text-[#444] hover:text-[#888] text-xs transition-colors">
-              hello@csvventures.com
+            <a href="mailto:hello@cw3ventures.com" class="text-[#444] hover:text-[#888] text-xs transition-colors">
+              hello@cw3ventures.com
             </a>
           </li>
 
           <!-- Web -->
           <li class="flex items-center gap-3">
             <i class="fas fa-globe text-[#444] text-xs flex-shrink-0 w-3 text-center"></i>
-            <a href="https://csvventures.com" class="text-[#444] hover:text-[#888] text-xs transition-colors">
-              csvventures.com
+            <a href="https://cw3ventures.com" class="text-[#444] hover:text-[#888] text-xs transition-colors">
+              cw3ventures.com
             </a>
           </li>
 
@@ -1110,7 +1247,7 @@ DOCTYPE html>
 
     <!-- Bottom bar -->
     <div class="border-t border-[#1a1a1a] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-[#2e2e2e] text-xs">© 2025 CSV Ventures. All rights reserved.</p>
+      <p class="text-[#2e2e2e] text-xs">© 2026 CW3 Ventures. All rights reserved.</p>
       <p class="text-[#2e2e2e] text-xs tracking-widest uppercase">Private. Vetted. Selective.</p>
     </div>
 
@@ -1243,6 +1380,49 @@ DOCTYPE html>
       cursorGlow.style.top  = e.clientY + 'px';
     });
   }
+
+  /* ── Floating particle field (cinematic depth) ── */
+  (function buildParticles() {
+    const host = document.getElementById('particles');
+    if (!host) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const count = window.innerWidth < 768 ? 14 : 28;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('span');
+      p.className = 'particle';
+      const size = 2 + Math.random() * 5;
+      p.style.width  = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top  = Math.random() * 100 + '%';
+      p.style.opacity = (0.25 + Math.random() * 0.4).toFixed(2);
+      if (!reduced) {
+        p.style.animationDuration = (5 + Math.random() * 6).toFixed(2) + 's';
+        p.style.animationDelay    = (Math.random() * 5).toFixed(2) + 's';
+      }
+      host.appendChild(p);
+    }
+  })();
+
+  /* ── Subtle parallax depth on scroll ── */
+  (function parallax() {
+    const layers = document.querySelectorAll('.parallax');
+    if (!layers.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        layers.forEach(el => {
+          const depth = parseFloat(el.getAttribute('data-depth')) || 0.1;
+          el.style.transform = `translate3d(0, ${(y * depth).toFixed(1)}px, 0)`;
+        });
+        ticking = false;
+      });
+    }, { passive: true });
+  })();
 </script>
 
 </body>
