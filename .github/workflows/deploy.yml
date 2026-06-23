@@ -25,6 +25,7 @@ jobs:
         run: |
           mkdir -p dist/assets
           cp index.html dist/index.html
+          cp _headers dist/_headers
           cp assets/*.webp dist/assets/
 
       - name: Deploy to Cloudflare Pages
