@@ -1,0 +1,35 @@
+name: Deploy to Cloudflare Pages
+
+# Auto-deploys the site to the Cloudflare Pages project "csv-ventures-site"
+# (which serves cw3ventures.com + www) on every push to main.
+# Cloudflare Pages keeps every deployment, so rollbacks are available in the dashboard.
+#
+# One-time setup: add two GitHub repo secrets (Settings -> Secrets and variables -> Actions):
+#   CLOUDFLARE_API_TOKEN  -- a token with "Cloudflare Pages: Edit" permission
+#   CLOUDFLARE_ACCOUNT_ID -- 696a53303787cb3614fa84aedcf65a95
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stage static build
+        run: |
+          mkdir -p dist/assets
+          cp index.html dist/index.html
+          cp assets/*.webp dist/assets/
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=csv-ventures-site --branch=main
