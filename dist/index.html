@@ -185,23 +185,6 @@
     .initiative-accent {
       background: linear-gradient(90deg, transparent, rgba(96,165,250,0.7), transparent);
     }
-    /* ── Status chip ── */
-    .status-chip {
-      position: absolute;
-      top: 12px; right: 12px;
-      z-index: 10;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #cfe3ff;
-      background: rgba(11,16,24,0.55);
-      border: 1px solid rgba(96,165,250,0.45);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
 
     /* ── Gradient text ── */
     .text-gradient {
@@ -223,59 +206,52 @@
       align-items: center;
       gap: 8px;
       padding: 14px 32px;
-      background: linear-gradient(135deg, #3B82F6 0%, #22D3EE 100%);
-      color: #04111f;
-      font-weight: 700;
+      background: #ffffff;
+      color: #0B0B0B;
+      font-weight: 600;
       font-size: 15px;
-      border-radius: 8px;
-      border: 1px solid rgba(96,165,250,0.6);
+      border-radius: 6px;
       transition: all 0.25s ease;
       letter-spacing: 0.01em;
       text-decoration: none;
-      box-shadow: 0 0 0 rgba(34,211,238,0);
     }
     .btn-primary:hover {
+      background: #e8e8e8;
       transform: translateY(-2px);
-      box-shadow: 0 10px 38px rgba(34,211,238,0.30), 0 0 22px rgba(59,130,246,0.25);
-      filter: brightness(1.06);
+      box-shadow: 0 8px 32px rgba(255,255,255,0.12);
     }
     .btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 14px 32px;
-      background: rgba(255,255,255,0.03);
+      background: transparent;
       color: #E8E8E8;
       font-weight: 600;
       font-size: 15px;
-      border-radius: 8px;
-      border: 1px solid rgba(96,165,250,0.30);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      border-radius: 6px;
+      border: 1px solid #2a2a2a;
       transition: all 0.25s ease;
       letter-spacing: 0.01em;
       text-decoration: none;
     }
     .btn-secondary:hover {
-      border-color: rgba(96,165,250,0.7);
-      background: rgba(59,130,246,0.10);
+      border-color: #555;
+      background: #161616;
       transform: translateY(-2px);
-      box-shadow: 0 0 22px rgba(59,130,246,0.15);
     }
 
-    /* ── Cards (glassmorphism, unified blue language) ── */
+    /* ── Cards ── */
     .card {
-      background: linear-gradient(160deg, rgba(20,28,42,0.55) 0%, rgba(13,16,22,0.72) 100%);
-      border: 1px solid rgba(96,165,250,0.14);
-      border-radius: 14px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: #111111;
+      border: 1px solid #1F1F1F;
+      border-radius: 12px;
       transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
-      border-color: rgba(96,165,250,0.45);
+      border-color: #3a3a3a;
       transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 32px rgba(59,130,246,0.12);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
     /* ── Step connector ── */
@@ -327,20 +303,15 @@
     .step-badge {
       width: 56px; height: 56px;
       border-radius: 50%;
-      border: 1px solid rgba(96,165,250,0.30);
-      background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(34,211,238,0.04));
+      border: 1px solid #2a2a2a;
+      background: #111111;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
       font-weight: 700;
-      color: #93c5fd;
-      box-shadow: 0 0 20px rgba(59,130,246,0.08);
-      transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
-    }
-    .group:hover .step-badge {
-      border-color: rgba(96,165,250,0.7);
-      box-shadow: 0 0 26px rgba(59,130,246,0.25);
+      color: #ffffff;
+      transition: border-color 0.3s, background 0.3s;
     }
 
     /* ── Mobile menu ── */
@@ -375,19 +346,18 @@
       gap: 6px;
       padding: 5px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(96,165,250,0.30);
-      background: rgba(59,130,246,0.06);
+      border: 1px solid #2a2a2a;
+      background: #0f0f0f;
       font-size: 12px;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #9db8e0;
+      color: #888;
     }
     .pill .dot {
       width: 6px; height: 6px;
       border-radius: 50%;
-      background: #60A5FA;
-      box-shadow: 0 0 8px rgba(96,165,250,0.8);
+      background: #555;
     }
   </style>
 </head>
@@ -550,7 +520,7 @@
 ═══════════════════════════════════════════ -->
 <section id="what-we-do" class="relative py-28 px-6 overflow-hidden">
 
-  <div class="glow-blob w-[400px] h-[400px] glow-blue opacity-[0.06] top-0 right-[-100px]"></div>
+  <div class="glow-blob w-[400px] h-[400px] bg-white opacity-[0.015] top-0 right-[-100px]"></div>
 
   <div class="max-w-6xl mx-auto">
 
@@ -622,7 +592,7 @@
 ═══════════════════════════════════════════ -->
 <section id="how-it-works" class="relative py-28 px-6 overflow-hidden">
 
-  <div class="glow-blob w-[500px] h-[500px] glow-blue opacity-[0.06] bottom-0 left-[-150px]"></div>
+  <div class="glow-blob w-[500px] h-[500px] bg-white opacity-[0.015] bottom-0 left-[-150px]"></div>
 
   <div class="max-w-6xl mx-auto">
 
@@ -748,7 +718,7 @@
 ═══════════════════════════════════════════ -->
 <section id="different" class="relative py-28 px-6 overflow-hidden">
 
-  <div class="glow-blob w-[450px] h-[450px] glow-cyan opacity-[0.05] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="glow-blob w-[450px] h-[450px] bg-white opacity-[0.02] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
   <div class="max-w-6xl mx-auto">
 
@@ -768,42 +738,30 @@
 
       <!-- Statement 1 -->
       <div class="card reveal reveal-delay-1 p-8">
-        <div class="flex items-center justify-between mb-5">
-          <div class="icon-tile-blue w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-screwdriver-wrench"></i></div>
-          <span class="text-[clamp(2rem,4vw,2.75rem)] font-black leading-none" style="color:rgba(96,165,250,0.18);">01</span>
-        </div>
-        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Founder-Led Execution.</h3>
-        <p class="text-[#8a93a3] text-sm leading-relaxed">We don't just advise — we build. Every company gets founder-level commitment, engineering, and operational focus from day one.</p>
+        <div class="text-[#333] text-5xl font-black mb-4 leading-none">01</div>
+        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">We Operate Like Founders, Not Funds.</h3>
+        <p class="text-[#666] text-sm leading-relaxed">CW3 Ventures doesn't just write checks. We're in the trenches — building, testing, iterating. Every company gets founder-level attention and energy.</p>
       </div>
 
       <!-- Statement 2 -->
       <div class="card reveal reveal-delay-2 p-8">
-        <div class="flex items-center justify-between mb-5">
-          <div class="icon-tile-blue w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-brain"></i></div>
-          <span class="text-[clamp(2rem,4vw,2.75rem)] font-black leading-none" style="color:rgba(96,165,250,0.18);">02</span>
-        </div>
-        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Intelligence by Default.</h3>
-        <p class="text-[#8a93a3] text-sm leading-relaxed">AI and operational intelligence are engineered into every product from the first line of code — not bolted on later.</p>
+        <div class="text-[#333] text-5xl font-black mb-4 leading-none">02</div>
+        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Traction Before Capital. Always.</h3>
+        <p class="text-[#666] text-sm leading-relaxed">We validate with real users before raising. Investors see live data, not decks. This creates better deals, better companies, and better outcomes for everyone.</p>
       </div>
 
       <!-- Statement 3 -->
       <div class="card reveal reveal-delay-3 p-8">
-        <div class="flex items-center justify-between mb-5">
-          <div class="icon-tile-blue w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-diagram-project"></i></div>
-          <span class="text-[clamp(2rem,4vw,2.75rem)] font-black leading-none" style="color:rgba(96,165,250,0.18);">03</span>
-        </div>
-        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Systems, Not One-Offs.</h3>
-        <p class="text-[#8a93a3] text-sm leading-relaxed">We build repeatable platforms and operational systems designed to scale across markets, sectors, and technologies.</p>
+        <div class="text-[#333] text-5xl font-black mb-4 leading-none">03</div>
+        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Speed Is the Strategy.</h3>
+        <p class="text-[#666] text-sm leading-relaxed">Slow builds kill momentum. We move at startup speed — weeks not months — so market timing stays in our favor and learnings compound faster.</p>
       </div>
 
       <!-- Statement 4 -->
       <div class="card reveal reveal-delay-4 p-8">
-        <div class="flex items-center justify-between mb-5">
-          <div class="icon-tile-blue w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-bolt"></i></div>
-          <span class="text-[clamp(2rem,4vw,2.75rem)] font-black leading-none" style="color:rgba(96,165,250,0.18);">04</span>
-        </div>
-        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Speed Is the Strategy.</h3>
-        <p class="text-[#8a93a3] text-sm leading-relaxed">We move at startup speed — shipping, validating, and iterating in weeks, so timing and learning compound in our favor.</p>
+        <div class="text-[#333] text-5xl font-black mb-4 leading-none">04</div>
+        <h3 class="text-white font-bold text-xl mb-3 tracking-tight">Private. Intentional. Selective.</h3>
+        <p class="text-[#666] text-sm leading-relaxed">CW3 Ventures is not a public accelerator. We work with a tight circle of operators, builders, and investors who believe in doing great work without the noise.</p>
       </div>
 
     </div>
@@ -819,7 +777,7 @@
 ═══════════════════════════════════════════ -->
 <section id="leadership" class="relative py-28 px-6 overflow-hidden">
 
-  <div class="glow-blob w-[400px] h-[400px] glow-blue opacity-[0.06] top-0 right-0"></div>
+  <div class="glow-blob w-[400px] h-[400px] bg-white opacity-[0.015] top-0 right-0"></div>
 
   <div class="max-w-6xl mx-auto">
 
@@ -827,13 +785,13 @@
     <div class="text-center mb-16">
       <div class="pill mb-6 reveal mx-auto" style="width:fit-content">
         <span class="dot"></span>
-        Founder-Led Execution
+        Leadership
       </div>
       <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
-        Built and led by the founder.
+        Founder-led. Built to last.
       </h2>
-      <p class="reveal reveal-delay-2 text-[#7d8696] mt-4 max-w-md mx-auto text-base">
-        CW3 Ventures is led by a founder and operator who builds the companies, not just funds them.
+      <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-md mx-auto text-base">
+        CW3 Ventures is led by a founder and operator focused on building intelligent companies that solve meaningful problems.
       </p>
     </div>
 
@@ -842,35 +800,35 @@
 
       <!-- Cory Wooten -->
       <div class="founder-card card reveal reveal-delay-1 p-10 flex flex-col items-center text-center">
-        <div class="avatar-ring w-24 h-24 rounded-full flex items-center justify-center mb-6 overflow-hidden" style="background: linear-gradient(135deg, rgba(59,130,246,0.20), rgba(34,211,238,0.06));">
+        <div class="avatar-ring w-24 h-24 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 overflow-hidden">
           <span class="text-3xl font-black text-white tracking-tight">CW</span>
         </div>
         <div class="pill mb-3">
-          <span class="dot"></span>
-          Founder &amp; CEO
+          <span class="dot" style="background: #fff;"></span>
+          Founder & CEO
         </div>
         <h3 class="text-white font-bold text-2xl mt-2 mb-1">Cory Wooten</h3>
-        <p class="text-[#69748a] text-xs uppercase tracking-widest mb-5">Founder &amp; CEO, CW3 Ventures</p>
+        <p class="text-[#444] text-xs uppercase tracking-widest mb-5">Founder &amp; CEO, CW3 Ventures</p>
 
         <!-- Short bio -->
-        <p class="text-[#9aa3b2] text-sm md:text-base leading-relaxed mb-4 max-w-lg">
-          Founder and operator building intelligent, technology-driven companies. Cory pairs AI and business strategy with a background spanning sports, entertainment, and business development — turning ideas into platforms and operational systems built to scale.
+        <p class="text-[#888] text-sm md:text-base leading-relaxed mb-4 max-w-lg">
+          Founder, operator, and builder focused on creating intelligent companies, scalable technology platforms, and operational systems that solve meaningful problems.
         </p>
 
         <!-- Expandable full bio -->
         <div id="cory-bio-full" class="hidden text-left space-y-3 mb-4 max-w-lg">
-          <p class="text-[#7d8696] text-sm leading-relaxed">
-            His work spans venture creation, operational intelligence, and platform building — originating ideas, shaping product and strategy, and scaling what works across AI, software, robotics, and emerging technology.
+          <p class="text-[#555] text-sm leading-relaxed">
+            Cory works across the full lifecycle of venture creation — originating ideas, building them into real products and platforms, validating them against real-world signals, and scaling what works. His focus spans artificial intelligence, operational intelligence, software, robotics, and data systems.
           </p>
-          <p class="text-[#7d8696] text-sm leading-relaxed">
-            The approach is rooted in building systems, not just companies — disciplined, evidence-driven, and engineered for durable, long-term value. At CW3 Ventures, he leads the venture creation engine and sets strategic direction across every platform.
+          <p class="text-[#555] text-sm leading-relaxed">
+            His approach is rooted in building systems, not just companies — disciplined, evidence-driven, and engineered to create durable, long-term value. At CW3 Ventures, he leads the company's venture creation engine and sets strategic direction across every platform.
           </p>
         </div>
 
         <!-- Read more toggle -->
         <button
           onclick="toggleBio('cory-bio-full', this)"
-          class="text-[#60A5FA] hover:text-[#93c5fd] text-xs transition-colors flex items-center gap-1 mx-auto mb-6"
+          class="text-[#555] hover:text-[#888] text-xs transition-colors flex items-center gap-1 mx-auto mb-6"
         >
           <span>Read more</span>
           <i class="fas fa-chevron-down text-[10px] transition-transform duration-300"></i>
@@ -878,10 +836,9 @@
 
         <!-- Specialty tags -->
         <div class="flex flex-wrap gap-2 justify-center">
-          <span class="pill text-[10px] py-1 px-3">AI &amp; Business Strategy</span>
           <span class="pill text-[10px] py-1 px-3">Venture Creation</span>
-          <span class="pill text-[10px] py-1 px-3">Operational Intelligence</span>
-          <span class="pill text-[10px] py-1 px-3">Platform Building</span>
+          <span class="pill text-[10px] py-1 px-3">AI &amp; Platforms</span>
+          <span class="pill text-[10px] py-1 px-3">Operational Systems</span>
         </div>
       </div>
 
@@ -904,14 +861,14 @@
 
     <!-- Header -->
     <div class="text-center mb-20">
-      <div class="pill mb-6 reveal mx-auto" style="width:fit-content;">
-        <span class="dot"></span>
-        Active Companies &amp; Initiatives
+      <div class="pill mb-6 reveal mx-auto" style="width:fit-content; border-color: rgba(59,130,246,0.4);">
+        <span class="dot" style="background:#60A5FA;"></span>
+        Active Initiatives
       </div>
       <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
         What we're building.
       </h2>
-      <p class="reveal reveal-delay-2 text-[#7d8696] mt-4 max-w-xl mx-auto text-base">
+      <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-xl mx-auto text-base">
         A portfolio of intelligent platforms and systems in active development across AI, operational intelligence, and robotics.
       </p>
     </div>
@@ -923,7 +880,6 @@
       <div class="card card-glow reveal reveal-delay-1 relative overflow-hidden">
         <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
         <div class="relative h-40 overflow-hidden">
-          <span class="status-chip">Active</span>
           <img src="assets/connect.webp" alt="CONNECT — intelligent connectivity layer" loading="lazy" class="w-full h-full object-cover" />
           <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
         </div>
@@ -940,7 +896,6 @@
       <div class="card card-glow reveal reveal-delay-2 relative overflow-hidden">
         <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
         <div class="relative h-40 overflow-hidden">
-          <span class="status-chip">Platform</span>
           <img src="assets/command.webp" alt="COMMAND — operational intelligence platform" loading="lazy" class="w-full h-full object-cover" />
           <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
         </div>
@@ -957,7 +912,6 @@
       <div class="card card-glow reveal reveal-delay-3 relative overflow-hidden">
         <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
         <div class="relative h-40 overflow-hidden">
-          <span class="status-chip">In Development</span>
           <img src="assets/agents.webp" alt="CW3 Agents — autonomous AI agents" loading="lazy" class="w-full h-full object-cover" />
           <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
         </div>
@@ -974,7 +928,6 @@
       <div class="card card-glow reveal reveal-delay-4 relative overflow-hidden">
         <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
         <div class="relative h-40 overflow-hidden">
-          <span class="status-chip">Intelligence</span>
           <img src="assets/signal.webp" alt="CW3 Signal — signal intelligence" loading="lazy" class="w-full h-full object-cover" />
           <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
         </div>
@@ -991,7 +944,6 @@
       <div class="card card-glow reveal reveal-delay-5 relative overflow-hidden">
         <div class="initiative-accent absolute top-0 left-0 right-0 h-px z-10"></div>
         <div class="relative h-40 overflow-hidden">
-          <span class="status-chip">Robotics</span>
           <img src="assets/robotics.webp" alt="Future Robotics Initiative — applied robotics" loading="lazy" class="w-full h-full object-cover" />
           <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(17,17,17,0.96) 100%);"></div>
         </div>
@@ -1027,67 +979,103 @@
 ═══════════════════════════════════════════ -->
 <section id="opportunities" class="relative py-28 px-6 overflow-hidden">
 
-  <div class="glow-blob w-[450px] h-[450px] glow-cyan opacity-[0.05] bottom-0 left-[-100px]"></div>
+  <div class="glow-blob w-[450px] h-[450px] bg-white opacity-[0.02] bottom-0 left-[-100px]"></div>
 
   <div class="max-w-6xl mx-auto">
 
     <!-- Header -->
-    <div class="text-center mb-16">
+    <div class="text-center mb-20">
       <div class="pill mb-6 reveal mx-auto" style="width:fit-content">
         <span class="dot"></span>
-        Build With CW3
+        Opportunities
       </div>
       <h2 class="reveal reveal-delay-1 text-[clamp(2rem,4vw,3rem)] font-black tracking-tight text-gradient">
-        Three ways to build with us.
+        Build with CW3.
       </h2>
-      <p class="reveal reveal-delay-2 text-[#7d8696] mt-4 max-w-xl mx-auto text-base">
-        Partner with CW3, explore what we're building, or bring us a venture worth building. We work with operators, builders, and partners focused on intelligent, technology-driven companies.
+      <p class="reveal reveal-delay-2 text-[#666] mt-4 max-w-xl mx-auto text-base">
+        Whether you're an early user who wants in first or an investor looking for validated, technology-driven companies — there's a seat at the table.
       </p>
     </div>
 
-    <!-- Three paths -->
-    <div class="grid md:grid-cols-3 gap-6">
+    <!-- Two columns -->
+    <div class="grid md:grid-cols-2 gap-8">
 
-      <!-- Partner With CW3 -->
-      <div class="card card-glow reveal reveal-delay-1 p-8 relative overflow-hidden flex flex-col">
-        <div class="initiative-accent absolute top-0 left-0 right-0 h-px"></div>
-        <div class="icon-tile-blue w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-          <i class="fas fa-handshake text-lg"></i>
-        </div>
-        <h3 class="text-white font-bold text-xl mb-2 tracking-tight">Partner With CW3</h3>
-        <p class="text-[#8a93a3] text-sm leading-relaxed mb-8">Co-build, co-invest, or align with CW3 on intelligent, technology-driven companies.</p>
-        <a href="mailto:hello@cw3ventures.com?subject=Partner%20With%20CW3" class="btn-primary w-full justify-center mt-auto" rel="noopener">
-          <i class="fas fa-handshake"></i>
-          Partner With CW3
-        </a>
-      </div>
+      <!-- Column 1: Users / Testers -->
+      <div class="card reveal reveal-delay-1 p-10 relative overflow-hidden">
 
-      <!-- Explore Opportunities -->
-      <div class="card card-glow reveal reveal-delay-2 p-8 relative overflow-hidden flex flex-col">
-        <div class="initiative-accent absolute top-0 left-0 right-0 h-px"></div>
-        <div class="icon-tile-blue w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-          <i class="fas fa-compass text-lg"></i>
+        <!-- Subtle top accent -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3a3a3a] to-transparent"></div>
+
+        <div class="w-12 h-12 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center mb-6">
+          <i class="fas fa-user-check text-white text-lg"></i>
         </div>
-        <h3 class="text-white font-bold text-xl mb-2 tracking-tight">Explore Opportunities</h3>
-        <p class="text-[#8a93a3] text-sm leading-relaxed mb-8">Get early access to CW3 platforms and initiatives as they're built and launched.</p>
-        <a href="mailto:access@cw3ventures.com?subject=Explore%20Opportunities" class="btn-secondary w-full justify-center mt-auto" rel="noopener">
+
+        <h3 class="text-white font-bold text-2xl mb-2 tracking-tight">For Users & Testers</h3>
+        <p class="text-[#555] text-sm mb-8 leading-relaxed">Get early access to platforms before they launch. Shape the product. Earn exclusive perks and early-adopter status.</p>
+
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Be among the first users on new platforms before public launch</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Provide feedback that directly shapes the product roadmap</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Receive exclusive early-adopter benefits and rewards</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Join a community of people building the future of digital platforms</span>
+          </li>
+        </ul>
+
+        <a href="#cta" class="btn-secondary w-full justify-center">
           Explore Opportunities
           <i class="fas fa-arrow-right text-sm"></i>
         </a>
+
       </div>
 
-      <!-- Submit a Venture Idea -->
-      <div class="card card-glow reveal reveal-delay-3 p-8 relative overflow-hidden flex flex-col">
-        <div class="initiative-accent absolute top-0 left-0 right-0 h-px"></div>
-        <div class="icon-tile-blue w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-          <i class="fas fa-lightbulb text-lg"></i>
+      <!-- Column 2: Investors / Partners -->
+      <div class="card reveal reveal-delay-2 p-10 relative overflow-hidden" style="border-color: #2a2a2a; background: linear-gradient(135deg, #111 0%, #141414 100%);">
+
+        <!-- Subtle top accent -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+        <div class="w-12 h-12 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center mb-6">
+          <i class="fas fa-briefcase text-white text-lg"></i>
         </div>
-        <h3 class="text-white font-bold text-xl mb-2 tracking-tight">Submit a Venture Idea</h3>
-        <p class="text-[#8a93a3] text-sm leading-relaxed mb-8">Bring us a problem worth solving or a venture worth building together.</p>
-        <a href="mailto:hello@cw3ventures.com?subject=Venture%20Idea" class="btn-secondary w-full justify-center mt-auto" rel="noopener">
-          Submit a Venture Idea
-          <i class="fas fa-arrow-right text-sm"></i>
+
+        <h3 class="text-white font-bold text-2xl mb-2 tracking-tight">For Investors & Partners</h3>
+        <p class="text-[#555] text-sm mb-8 leading-relaxed">Access validated deal flow backed by real user data. Co-build, co-invest, or align capital with platforms showing real traction.</p>
+
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Access exclusive, pre-public investment opportunities</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Review live user validation data before committing capital</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Co-build ventures with aligned operators from day one</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-check text-white text-xs mt-1 flex-shrink-0"></i>
+            <span class="text-[#888] text-sm">Join a private network of operators, founders, and capital allocators</span>
+          </li>
+        </ul>
+
+        <a href="#cta" class="btn-primary w-full justify-center">
+          <i class="fas fa-handshake"></i>
+          Partner With CW3
         </a>
+
       </div>
 
     </div>
@@ -1103,17 +1091,17 @@
 ═══════════════════════════════════════════ -->
 <section id="cta" class="relative py-36 px-6 overflow-hidden">
 
-  <!-- Background radial glow (blue) -->
-  <div class="absolute inset-0 z-0" style="background: radial-gradient(ellipse 80% 60% at 50% 45%, rgba(59,130,246,0.10) 0%, transparent 70%);"></div>
+  <!-- Background radial glow -->
+  <div class="absolute inset-0 z-0" style="background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%);"></div>
 
   <!-- Grid -->
-  <div class="absolute inset-0 z-0" style="background-image: linear-gradient(#15233a 1px, transparent 1px), linear-gradient(90deg, #15233a 1px, transparent 1px); background-size: 60px 60px; opacity: 0.18;"></div>
+  <div class="absolute inset-0 z-0" style="background-image: linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px); background-size: 60px 60px; opacity: 0.15;"></div>
 
   <div class="relative z-10 max-w-4xl mx-auto text-center">
 
     <!-- Label -->
     <div class="pill mb-8 reveal mx-auto" style="width:fit-content">
-      <span class="dot"></span>
+      <span class="dot" style="background:#888;"></span>
       Ready? Let's Move.
     </div>
 
@@ -1165,7 +1153,7 @@
     <div class="section-divider mb-8"></div>
 
     <!-- Trust line -->
-    <p class="text-[#4a5568] text-xs tracking-widest uppercase">Building the next generation of intelligent companies.</p>
+    <p class="text-[#333] text-xs tracking-widest uppercase">Private. Vetted. By invitation &amp; application only.</p>
 
   </div>
 </section>
@@ -1260,7 +1248,7 @@
     <!-- Bottom bar -->
     <div class="border-t border-[#1a1a1a] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-[#2e2e2e] text-xs">© 2026 CW3 Ventures. All rights reserved.</p>
-      <p class="text-[#3a4253] text-xs tracking-widest uppercase">Building Intelligent Companies</p>
+      <p class="text-[#2e2e2e] text-xs tracking-widest uppercase">Private. Vetted. Selective.</p>
     </div>
 
   </div>
